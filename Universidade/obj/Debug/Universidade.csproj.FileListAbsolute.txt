@@ -25,3 +25,19 @@ C:\Users\julia\OneDrive - Complexo de Ensino Superior do Brasil LTDA\SEGUNDO_SEM
 C:\Users\julia\OneDrive - Complexo de Ensino Superior do Brasil LTDA\SEGUNDO_SEMESTRE\PROGRAMACAO\Universidade\obj\Debug\Universidade.csproj.CopyComplete
 C:\Users\julia\OneDrive - Complexo de Ensino Superior do Brasil LTDA\SEGUNDO_SEMESTRE\PROGRAMACAO\Universidade\obj\Debug\Universidade.View.TelaUsuarios.resources
 C:\Users\julia\OneDrive - Complexo de Ensino Superior do Brasil LTDA\SEGUNDO_SEMESTRE\PROGRAMACAO\Universidade\obj\Debug\Universidade.View.Professor.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Universidade.exe.config
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Universidade.exe
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Universidade.pdb
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Newtonsoft.Json.dll
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Newtonsoft.Json.xml
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csprojAssemblyReference.cache
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.CadastroUsuario.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.Form1.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.Properties.Resources.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Professor.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.TelaUsuarios.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.GenerateResource.cache
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.CoreCompileInputs.cache
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.CopyComplete
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.exe
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.pdb
