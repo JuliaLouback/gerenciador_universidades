@@ -15,9 +15,6 @@ namespace Universidade.View
         public TelaUsuarios()
         {
             InitializeComponent();
-            btnCadastrarUser.FlatStyle = FlatStyle.Flat;
-            btnCadastrarUser.FlatAppearance.BorderColor = Color.LightGray;
-            btnCadastrarUser.FlatAppearance.BorderSize = 1;
 
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
@@ -26,14 +23,14 @@ namespace Universidade.View
 
         private void BtnCadastrarUser_Click(object sender, EventArgs e)
         {
-            CadastroUsuario cadastroUsuario = new CadastroUsuario();
+            CadastroUsuario cadastroUsuario = new CadastroUsuario(0);
             Hide();
             cadastroUsuario.Show();
         }
 
         private void Label2_Click(object sender, EventArgs e)
         {
-            CadastroUsuario cadastroUsuario = new CadastroUsuario();
+            CadastroUsuario cadastroUsuario = new CadastroUsuario(0);
             Hide();
             cadastroUsuario.Show();
         }

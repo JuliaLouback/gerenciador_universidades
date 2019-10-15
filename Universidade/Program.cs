@@ -18,7 +18,7 @@ namespace Universidade
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Arquivos arquivo = new Arquivos();
-            arquivo.lerPessoa();
+            arquivo.lerProfessor();
             Application.Run(new Form1());
         }
     }

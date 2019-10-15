@@ -51,7 +51,8 @@
   <ItemGroup>
     <Compile Include="Arquivo\Arquivos.cs" />
     <Compile Include="Controler\ControleClass.cs" />
-    <Compile Include="DAO\DaoPessoa.cs" />
+    <Compile Include="DAO\DaoProfessor.cs" />
+    <Compile Include="Entidades\Professores.cs" />
     <Compile Include="View\CadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

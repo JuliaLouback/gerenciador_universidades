@@ -33,12 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCadastrarUser = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnCadastrarMateria = new System.Windows.Forms.Button();
             this.btnCadastrarCurso = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCadastrarSetores = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,9 +66,9 @@
             this.btnCadastrarUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastrarUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarUser.Image")));
-            this.btnCadastrarUser.Location = new System.Drawing.Point(163, 138);
+            this.btnCadastrarUser.Location = new System.Drawing.Point(37, 198);
             this.btnCadastrarUser.Name = "btnCadastrarUser";
-            this.btnCadastrarUser.Size = new System.Drawing.Size(184, 113);
+            this.btnCadastrarUser.Size = new System.Drawing.Size(217, 130);
             this.btnCadastrarUser.TabIndex = 2;
             this.btnCadastrarUser.UseVisualStyleBackColor = false;
             this.btnCadastrarUser.Click += new System.EventHandler(this.BtnCadastrarUser_Click);
@@ -79,43 +78,21 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(215, 270);
+            this.label2.Location = new System.Drawing.Point(100, 347);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Usuários";
             this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(504, 270);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Matérias";
-            // 
-            // btnCadastrarMateria
-            // 
-            this.btnCadastrarMateria.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrarMateria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarMateria.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarMateria.Image")));
-            this.btnCadastrarMateria.Location = new System.Drawing.Point(453, 138);
-            this.btnCadastrarMateria.Name = "btnCadastrarMateria";
-            this.btnCadastrarMateria.Size = new System.Drawing.Size(184, 113);
-            this.btnCadastrarMateria.TabIndex = 6;
-            this.btnCadastrarMateria.UseVisualStyleBackColor = false;
-            // 
             // btnCadastrarCurso
             // 
             this.btnCadastrarCurso.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastrarCurso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarCurso.Image")));
-            this.btnCadastrarCurso.Location = new System.Drawing.Point(453, 322);
+            this.btnCadastrarCurso.Location = new System.Drawing.Point(289, 198);
             this.btnCadastrarCurso.Name = "btnCadastrarCurso";
-            this.btnCadastrarCurso.Size = new System.Drawing.Size(184, 113);
+            this.btnCadastrarCurso.Size = new System.Drawing.Size(217, 130);
             this.btnCadastrarCurso.TabIndex = 7;
             this.btnCadastrarCurso.UseVisualStyleBackColor = false;
             // 
@@ -124,7 +101,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(215, 450);
+            this.label4.Location = new System.Drawing.Point(623, 347);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 20);
             this.label4.TabIndex = 8;
@@ -135,9 +112,9 @@
             this.btnCadastrarSetores.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastrarSetores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarSetores.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarSetores.Image")));
-            this.btnCadastrarSetores.Location = new System.Drawing.Point(163, 322);
+            this.btnCadastrarSetores.Location = new System.Drawing.Point(541, 198);
             this.btnCadastrarSetores.Name = "btnCadastrarSetores";
-            this.btnCadastrarSetores.Size = new System.Drawing.Size(184, 113);
+            this.btnCadastrarSetores.Size = new System.Drawing.Size(217, 130);
             this.btnCadastrarSetores.TabIndex = 9;
             this.btnCadastrarSetores.UseVisualStyleBackColor = false;
             // 
@@ -146,27 +123,38 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label5.Location = new System.Drawing.Point(517, 450);
+            this.label5.Location = new System.Drawing.Point(365, 347);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Cursos";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(283, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(254, 31);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Painel de Controle";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 513);
+            this.ClientSize = new System.Drawing.Size(817, 530);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCadastrarSetores);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCadastrarCurso);
-            this.Controls.Add(this.btnCadastrarMateria);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCadastrarUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gerenciamento de Universidades";
@@ -182,12 +170,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCadastrarUser;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCadastrarMateria;
         private System.Windows.Forms.Button btnCadastrarCurso;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCadastrarSetores;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
     }
 }
 

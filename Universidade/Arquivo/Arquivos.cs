@@ -7,30 +7,31 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Universidade.DAO;
+using Universidade.Entidades;
 
 namespace Universidade.Arquivo
 {
     class Arquivos
     {
       
-        public void SalvarPessoa(List<Pessoa> listaPessoa)
+        public void SalvarProfessor(List<Professores> listaProfessor)
         {
-            string json = JsonConvert.SerializeObject(listaPessoa.ToArray());
+            string json = JsonConvert.SerializeObject(listaProfessor.ToArray());
 
-            System.IO.File.WriteAllText(@"C:\Projetos\listaPessoa.txt", json);
+            File.WriteAllText(@".\listaProfessor.txt", json);
         }
 
-        public void lerPessoa()
+        public void lerProfessor()
         {
-            DaoPessoa daoPessoa = new DaoPessoa();
-            string jsonFilePath = @"C:\Projetos\listaPessoa.txt";
+            DaoProfessor daoProfessor = new DaoProfessor();
+            string jsonFilePath = @".\listaProfessor.txt";
 
             if (File.Exists(jsonFilePath)) { 
                 string json = File.ReadAllText(jsonFilePath);
 
-                Pessoa[] listaPessoas = JsonConvert.DeserializeObject<Pessoa[]>(json);
+                Professores[] listaProfessor = JsonConvert.DeserializeObject<Professores[]>(json);
               
-                daoPessoa.addPessoaLer(listaPessoas.ToList());
+                daoProfessor.addProfessorLer(listaProfessor.ToList());
 
             }
         }

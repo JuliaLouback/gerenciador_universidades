@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Universidade.DAO;
+using Universidade.Entidades;
 
 namespace Universidade.Controler
 {
     class ControleClass
     {
-        private DaoPessoa dao = new DaoPessoa();
-        public void adicionar(Pessoa pessoa)
+        private DaoProfessor daoProfessor = new DaoProfessor();
+        public void adicionarProfessor(Professores professor)
         {
-            dao.addPessoa(pessoa);
+            daoProfessor.addProfessor(professor);
         }
     }
 }

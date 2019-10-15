@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabela = new System.Windows.Forms.DataGridView();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.cadastrarProfessor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(350, 43);
+            this.label1.Location = new System.Drawing.Point(299, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(644, 33);
             this.label1.TabIndex = 5;
@@ -54,7 +55,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(277, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(222, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(71, 65);
             this.pictureBox1.TabIndex = 4;
@@ -65,7 +66,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(588, 117);
+            this.label3.Location = new System.Drawing.Point(557, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 31);
             this.label3.TabIndex = 7;
@@ -111,19 +112,34 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
             // 
+            // cadastrarProfessor
+            // 
+            this.cadastrarProfessor.BackColor = System.Drawing.Color.ForestGreen;
+            this.cadastrarProfessor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cadastrarProfessor.ForeColor = System.Drawing.Color.White;
+            this.cadastrarProfessor.Location = new System.Drawing.Point(1077, 109);
+            this.cadastrarProfessor.Name = "cadastrarProfessor";
+            this.cadastrarProfessor.Size = new System.Drawing.Size(151, 52);
+            this.cadastrarProfessor.TabIndex = 51;
+            this.cadastrarProfessor.Text = "Cadastrar";
+            this.cadastrarProfessor.UseVisualStyleBackColor = false;
+            this.cadastrarProfessor.Click += new System.EventHandler(this.CadastrarProfessor_Click);
+            // 
             // Professor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1267, 602);
+            this.Controls.Add(this.cadastrarProfessor);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.tabela);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Professor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Professor";
+            this.Text = "Sistema de Gerenciamento de Universidades";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).EndInit();
             this.ResumeLayout(false);
@@ -138,5 +154,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView tabela;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button cadastrarProfessor;
     }
 }

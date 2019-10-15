@@ -9,38 +9,69 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Universidade.DAO;
 using Universidade.Arquivo;
+using Universidade.Entidades;
 
 namespace Universidade.View
 {
     public partial class Professor : Form
     {
-        private static DaoPessoa dao = new DaoPessoa();
-        private static Arquivos arquivo = new Arquivos();
-
+        private static DaoProfessor dao = new DaoProfessor();
+     
         public Professor()
         {
             InitializeComponent();
             Preencher();
 
+            cadastrarProfessor.FlatStyle = FlatStyle.Flat;
+            cadastrarProfessor.FlatAppearance.BorderColor = Color.ForestGreen;
+            cadastrarProfessor.FlatAppearance.BorderSize = 1;
+
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+
+
+            DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
+            editar.Name = "Editar";
+
+            editar.FlatStyle = FlatStyle.Flat;
+
+            editar.UseColumnTextForButtonValue = true;
+
+            editar.Text = "Editar";
+            int columnIndex1 = 6;
+            if (tabela.Columns["Editar"] == null)
+            {
+                tabela.Columns.Insert(columnIndex1, editar);
+            }
+
+            DataGridViewButtonColumn excluir = new DataGridViewButtonColumn();
+            excluir.Name = "Excluir";
+
+            excluir.FlatStyle = FlatStyle.Flat;
+
+            excluir.UseColumnTextForButtonValue = true;
+
+            excluir.Text = "Excluir";
+            int columnIndex = 7;
+            if (tabela.Columns["Excluir"] == null)
+            {
+                tabela.Columns.Insert(columnIndex, excluir);
+            }
         }
 
         public void Preencher()
         {
 
-            List<Pessoa > lstUsr = dao.listarPessoa();
+            List<Professores > lstUsr = dao.listarProfessor();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
-                RA = usuario.RA,
+                NR = usuario.NR,
                 Nome = usuario.Nome,
-                Celular = usuario.Telefone.TelefoneCelular,
-                Fixo = usuario.Telefone.TelefoneFixo,
-                Rua = usuario.Endereco.Rua,
-                Número = usuario.Endereco.Numero,
-                Cep = usuario.Endereco.Cep,
-                Bairro = usuario.Endereco.Bairro
+                CPF = usuario.CPF,
+                Email = usuario.Email,
+                Curso = usuario.Curso,
+                Matérias = usuario.Materia
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
@@ -48,28 +79,21 @@ namespace Universidade.View
             this.tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
             tabela.CellClick += tabela_CellClick;
 
-            DataGridViewButtonColumn excluir = new DataGridViewButtonColumn();
-            excluir.Name = "Excluir";
-        
-            excluir.FlatStyle = FlatStyle.Flat;
-      
-            excluir.UseColumnTextForButtonValue = true;
 
-            excluir.Text = "Excluir";
-            int columnIndex = 8;
-            if (tabela.Columns["Excluir"] == null)
-            {
-                tabela.Columns.Insert(columnIndex, excluir);
-            }
         }
 
         private void tabela_CellClick (object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                dao.excluirPessoa(Convert.ToInt32(tabela.CurrentRow.Cells[1].Value.ToString()));
+                dao.excluirProfessor(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
                 MessageBox.Show("Usuário Excluído com sucesso!","Usuário Excluído",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 Preencher();
+            } else if (e.ColumnIndex == tabela.Columns["Editar"].Index)
+            {
+                CadastroUsuario cadastroUsuario = new CadastroUsuario(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                Hide();
+                cadastroUsuario.Show();
             }
         }
 
@@ -78,6 +102,13 @@ namespace Universidade.View
             TelaUsuarios telaUsuario = new TelaUsuarios();
             Hide();
             telaUsuario.Show();
+        }
+
+        private void CadastrarProfessor_Click(object sender, EventArgs e)
+        {
+            CadastroUsuario cadastroUsuario = new CadastroUsuario(0);
+            Hide();
+            cadastroUsuario.Show();
         }
     }
 }

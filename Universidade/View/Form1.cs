@@ -24,9 +24,6 @@ namespace Universidade
             btnCadastrarSetores.FlatAppearance.BorderColor = Color.LightGray;
             btnCadastrarSetores.FlatAppearance.BorderSize = 1;
 
-            btnCadastrarMateria.FlatStyle = FlatStyle.Flat;
-            btnCadastrarMateria.FlatAppearance.BorderColor = Color.LightGray;
-            btnCadastrarMateria.FlatAppearance.BorderSize = 1;
 
             btnCadastrarCurso.FlatStyle = FlatStyle.Flat;
             btnCadastrarCurso.FlatAppearance.BorderColor = Color.LightGray;
