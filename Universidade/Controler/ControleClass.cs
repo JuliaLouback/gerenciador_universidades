@@ -12,6 +12,8 @@ namespace Universidade.Controler
     {
         private DaoProfessor daoProfessor = new DaoProfessor();
         private DaoCoodenador daoCoordenador = new DaoCoodenador();
+        private DaoSetor daoSetor = new DaoSetor();
+
         public void adicionarProfessor(Professores professor)
         {
             daoProfessor.addProfessor(professor);
@@ -20,6 +22,16 @@ namespace Universidade.Controler
         public void adicionarCoordenador(Coordenador coordenador)
         {
             daoCoordenador.addCoordenador(coordenador);
+        }
+
+        public void adicionarSetores(Setor setor)
+        {
+            daoSetor.addSetor(setor);
+        }
+
+        public void adicionarSetores(int verificar)
+        {
+            new DaoSetor().excluirSetor(verificar);
         }
 
         public void excluirProfessor(int verificar)
@@ -44,6 +56,11 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        public List<Setor> listarSetor()
+        {
+            var pesquisa = new DaoSetor().listarSetor();
+            return pesquisa;
+        }
 
     }
 }
