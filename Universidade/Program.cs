@@ -19,6 +19,7 @@ namespace Universidade
             Application.SetCompatibleTextRenderingDefault(false);
             Arquivos arquivo = new Arquivos();
             arquivo.lerProfessor();
+            arquivo.lerCoordenadores();
             Application.Run(new Form1());
         }
     }

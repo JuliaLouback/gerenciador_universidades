@@ -35,6 +35,7 @@ namespace Universidade
             {
                 verificar = NR;
                 btnCadastrarUsuario.Text = "Editar";
+                label3.Text = "Edição de Professor";
                 var pesquisa = new DaoProfessor().procurarProfessor(NR);
                 PreencherCampos(pesquisa);
             }
@@ -49,8 +50,6 @@ namespace Universidade
             txtCpf.Text         = item.CPF;
             txtNR.Value         = item.NR;
             txtEmail.Text       = item.Email;
-            txtCurso.Text       = item.Curso;
-            txtMateria.Text     = item.Materia;
             txtNumero.Value     = item.Endereco.Numero;
             txtRua.Text         = item.Endereco.Rua;
             txtCep.Text         = item.Endereco.Cep;
@@ -75,9 +74,6 @@ namespace Universidade
             professor.NR       = Convert.ToInt32(txtNR.Text);
             professor.Email     = txtEmail.Text;
 
-            professor.Curso = txtCurso.Text;
-            professor.Materia = txtMateria.Text;
-
             endereco.Cep    = txtCep.Text;
             endereco.Numero = Convert.ToInt32(txtNumero.Value);
             endereco.Rua    = txtRua.Text;
@@ -91,14 +87,52 @@ namespace Universidade
 
             professor.Endereco = endereco;
             professor.Telefone = telefone;
+         
 
             if (verificar == 0)
             {
-                new ControleClass().adicionarProfessor(professor);
-                MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtCheck.Checked == true) {
+                    new ControleClass().adicionarProfessor(professor);
+
+                    Coordenador coodenador = new Coordenador();
+
+                    coodenador.Nome = txtNome.Text;
+                    coodenador.Idade = Convert.ToInt32(txtIdade.Value);
+                    coodenador.Sexo = txtSexo.Text;
+                    coodenador.EstadoCivil = txtEstadoCivil.Text;
+                    coodenador.CPF = txtCpf.Text;
+                    coodenador.NR = Convert.ToInt32(txtNR.Text);
+                    coodenador.Email = txtEmail.Text;
+
+                    coodenador.Endereco = endereco;
+                    coodenador.Telefone = telefone;
+
+                    new ControleClass().adicionarCoordenador(coodenador);
+
+                    MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
             }
             else
             {
+                var pesquisa = new DaoCoodenador().procurarCoordenador(verificar);
+                if (pesquisa != null)
+                {
+                    pesquisa.Nome = txtNome.Text;
+                    pesquisa.Idade = Convert.ToInt32(txtIdade.Value);
+                    pesquisa.Sexo = txtSexo.Text;
+                    pesquisa.EstadoCivil = txtEstadoCivil.Text;
+                    pesquisa.CPF = txtCpf.Text;
+                    pesquisa.NR = Convert.ToInt32(txtNR.Text);
+                    pesquisa.Email = txtEmail.Text;
+
+
+                    pesquisa.Endereco = endereco;
+                    pesquisa.Telefone = telefone;
+
+                    new DaoCoodenador().excluirCoordenador(verificar);
+                    new ControleClass().adicionarCoordenador(pesquisa);
+
+                }
                 new DaoProfessor().excluirProfessor(verificar);
                 new ControleClass().adicionarProfessor(professor);
                 MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);

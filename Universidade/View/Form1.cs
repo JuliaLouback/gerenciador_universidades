@@ -43,5 +43,12 @@ namespace Universidade
             Hide();
             telaUsuario.Show();
         }
+
+        private void BtnCadastrarCurso_Click(object sender, EventArgs e)
+        {
+            Cursos curso = new Cursos();
+            Hide();
+            curso.Show();
+        }
     }
 }

@@ -48,5 +48,12 @@ namespace Universidade.View
             Hide();
             professor.Show();
         }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Coordenadores coordenador = new Coordenadores();
+            Hide();
+            coordenador.Show();
+        }
     }
 }

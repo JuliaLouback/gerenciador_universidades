@@ -41,3 +41,7 @@ C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.CopyComplete
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.exe
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.pdb
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroCoordenador.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroCurso.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Coordenadores.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Cursos.resources

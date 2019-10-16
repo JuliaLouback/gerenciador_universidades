@@ -67,9 +67,7 @@
             this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtCurso = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtMateria = new System.Windows.Forms.ComboBox();
+            this.txtCheck = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
@@ -459,7 +457,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.DimGray;
-            this.label21.Location = new System.Drawing.Point(99, 333);
+            this.label21.Location = new System.Drawing.Point(103, 333);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(72, 25);
             this.label21.TabIndex = 58;
@@ -473,64 +471,35 @@
             this.txtEmail.Size = new System.Drawing.Size(179, 24);
             this.txtEmail.TabIndex = 57;
             // 
-            // txtCurso
+            // txtCheck
             // 
-            this.txtCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurso.FormattingEnabled = true;
-            this.txtCurso.Items.AddRange(new object[] {
-            "Engenharia de Software",
-            "Sistema de Informação"});
-            this.txtCurso.Location = new System.Drawing.Point(507, 377);
-            this.txtCurso.Name = "txtCurso";
-            this.txtCurso.Size = new System.Drawing.Size(186, 26);
-            this.txtCurso.TabIndex = 62;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(502, 333);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(77, 29);
-            this.label20.TabIndex = 61;
-            this.label20.Text = "Curso";
-            // 
-            // txtMateria
-            // 
-            this.txtMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMateria.FormattingEnabled = true;
-            this.txtMateria.Items.AddRange(new object[] {
-            "Estatística",
-            "Programação de Computadores",
-            "Prática em Pesquisa",
-            "Prática em Programação",
-            "Redes de Computadores"});
-            this.txtMateria.Location = new System.Drawing.Point(307, 377);
-            this.txtMateria.Name = "txtMateria";
-            this.txtMateria.Size = new System.Drawing.Size(179, 26);
-            this.txtMateria.TabIndex = 60;
+            this.txtCheck.AutoSize = true;
+            this.txtCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCheck.Location = new System.Drawing.Point(309, 379);
+            this.txtCheck.Name = "txtCheck";
+            this.txtCheck.Size = new System.Drawing.Size(55, 24);
+            this.txtCheck.TabIndex = 59;
+            this.txtCheck.Text = "Sim";
+            this.txtCheck.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(302, 333);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.DimGray;
+            this.label17.Location = new System.Drawing.Point(304, 333);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(105, 29);
-            this.label17.TabIndex = 59;
-            this.label17.Text = "Máterias";
+            this.label17.Size = new System.Drawing.Size(158, 25);
+            this.label17.TabIndex = 60;
+            this.label17.Text = "É coodenador?";
             // 
             // CadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 749);
-            this.Controls.Add(this.txtCurso);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.txtMateria);
             this.Controls.Add(this.label17);
+            this.Controls.Add(this.txtCheck);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtCep);
@@ -622,9 +591,7 @@
         private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.ComboBox txtCurso;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox txtMateria;
+        private System.Windows.Forms.CheckBox txtCheck;
         private System.Windows.Forms.Label label17;
     }
 }

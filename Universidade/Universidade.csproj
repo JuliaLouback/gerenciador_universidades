@@ -51,8 +51,24 @@
   <ItemGroup>
     <Compile Include="Arquivo\Arquivos.cs" />
     <Compile Include="Controler\ControleClass.cs" />
+    <Compile Include="DAO\DaoCoodenador.cs" />
     <Compile Include="DAO\DaoProfessor.cs" />
+    <Compile Include="Entidades\Coordenador.cs" />
+    <Compile Include="Entidades\Curso.cs" />
+    <Compile Include="Entidades\Materias.cs" />
     <Compile Include="Entidades\Professores.cs" />
+    <Compile Include="View\CadastroCoordenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroCoordenador.Designer.cs">
+      <DependentUpon>CadastroCoordenador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroCurso.Designer.cs">
+      <DependentUpon>CadastroCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +76,18 @@
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Endereco.cs" />
+    <Compile Include="View\Coordenadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Coordenadores.Designer.cs">
+      <DependentUpon>Coordenadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cursos.Designer.cs">
+      <DependentUpon>Cursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +110,20 @@
     <Compile Include="View\TelaUsuarios.Designer.cs">
       <DependentUpon>TelaUsuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CadastroCoordenador.resx">
+      <DependentUpon>CadastroCoordenador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroCurso.resx">
+      <DependentUpon>CadastroCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Coordenadores.resx">
+      <DependentUpon>Coordenadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cursos.resx">
+      <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

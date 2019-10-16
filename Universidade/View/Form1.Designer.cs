@@ -95,6 +95,7 @@
             this.btnCadastrarCurso.Size = new System.Drawing.Size(217, 130);
             this.btnCadastrarCurso.TabIndex = 7;
             this.btnCadastrarCurso.UseVisualStyleBackColor = false;
+            this.btnCadastrarCurso.Click += new System.EventHandler(this.BtnCadastrarCurso_Click);
             // 
             // label4
             // 
