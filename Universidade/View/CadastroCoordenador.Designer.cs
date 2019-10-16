@@ -513,6 +513,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNome);
             this.Name = "CadastroCoordenador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroCoordenador";
             ((System.ComponentModel.ISupportInitialize)(this.txtNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).EndInit();

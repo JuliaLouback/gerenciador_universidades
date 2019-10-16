@@ -53,10 +53,12 @@
     <Compile Include="Controler\ControleClass.cs" />
     <Compile Include="DAO\DaoCoodenador.cs" />
     <Compile Include="DAO\DaoProfessor.cs" />
+    <Compile Include="DAO\DaoSetor.cs" />
     <Compile Include="Entidades\Coordenador.cs" />
     <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Materias.cs" />
     <Compile Include="Entidades\Professores.cs" />
+    <Compile Include="Entidades\Setor.cs" />
     <Compile Include="View\CadastroCoordenador.cs">
       <SubType>Form</SubType>
     </Compile>

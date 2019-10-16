@@ -33,7 +33,7 @@ namespace Universidade.View
                 verificar = NR;
                 btnCadastrarUsuario.Text = "Editar";
                 label3.Text = "Edição de Professor";
-                var pesquisa = new DaoCoodenador().procurarCoordenador(NR);
+                var pesquisa = new ControleClass().procurarCoordenador(NR);
                 PreencherCampos(pesquisa);
             }
         }
@@ -95,7 +95,7 @@ namespace Universidade.View
             }
             else
             {
-                new DaoCoodenador().excluirCoordenador(verificar);
+                new ControleClass().excluirCoordenador(verificar);
                 new ControleClass().adicionarCoordenador(coordenador);
 
                 var pesquisa = new DaoProfessor().procurarProfessor(verificar);
@@ -113,7 +113,7 @@ namespace Universidade.View
                     pesquisa.Endereco = endereco;
                     pesquisa.Telefone = telefone;
 
-                    new DaoProfessor().excluirProfessor(verificar);
+                    new ControleClass().excluirProfessor(verificar);
                     new ControleClass().adicionarProfessor(pesquisa);
                 }
                 MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);

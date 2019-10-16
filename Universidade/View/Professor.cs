@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Universidade.DAO;
 using Universidade.Arquivo;
 using Universidade.Entidades;
+using Universidade.Controler;
 
 namespace Universidade.View
 {
@@ -63,7 +64,7 @@ namespace Universidade.View
         public void Preencher()
         {
 
-            List<Professores > lstUsr = dao.listarProfessor();
+            List<Professores > lstUsr = new ControleClass().listarProfessor();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
                 NR = usuario.NR,
@@ -84,7 +85,7 @@ namespace Universidade.View
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                dao.excluirProfessor(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                new ControleClass().excluirProfessor(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
                 MessageBox.Show("Usuário Excluído com sucesso!","Usuário Excluído",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 Preencher();
             } else if (e.ColumnIndex == tabela.Columns["Editar"].Index)

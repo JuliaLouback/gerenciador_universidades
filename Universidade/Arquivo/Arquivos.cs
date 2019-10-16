@@ -61,5 +61,29 @@ namespace Universidade.Arquivo
             }
         }
 
+        // Setores
+
+        /*public void SalvaSetores(List<Setor> listaSetor)
+        {
+            string json = JsonConvert.SerializeObject(listaCoordenador.ToArray());
+
+            File.WriteAllText(@".\listaCoordenares.txt", json);
+        }
+
+        public void lerCoordenadores()
+        {
+            DaoCoodenador daoCoodenador = new DaoCoodenador();
+            string jsonFilePath = @".\listaCoordenares.txt";
+
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+
+                Coordenador[] listaCoordenador = JsonConvert.DeserializeObject<Coordenador[]>(json);
+
+                daoCoodenador.addCoordenadorLer(listaCoordenador.ToList());
+
+            }
+        }*/
     }
 }
