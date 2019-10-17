@@ -118,6 +118,7 @@
             this.btnCadastrarSetores.Size = new System.Drawing.Size(217, 130);
             this.btnCadastrarSetores.TabIndex = 9;
             this.btnCadastrarSetores.UseVisualStyleBackColor = false;
+            this.btnCadastrarSetores.Click += new System.EventHandler(this.btnCadastrarSetores_Click);
             // 
             // label5
             // 

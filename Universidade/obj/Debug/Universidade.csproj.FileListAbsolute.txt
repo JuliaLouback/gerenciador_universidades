@@ -45,3 +45,5 @@ C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.C
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroCurso.resources
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Coordenadores.resources
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Cursos.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroSetor.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Setores.resources

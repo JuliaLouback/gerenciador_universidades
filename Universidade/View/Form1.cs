@@ -50,5 +50,12 @@ namespace Universidade
             Hide();
             curso.Show();
         }
+
+        private void btnCadastrarSetores_Click(object sender, EventArgs e)
+        {
+            Setores setor = new Setores();
+            Hide();
+            setor.Show();
+        }
     }
 }

@@ -14,6 +14,6 @@ namespace Universidade.Entidades
 
         public string Localizacao { get; set; }
 
-        public List<Pessoa> Responsavel { get; set; }
+        public Pessoa Responsavel { get; set; }
     }
 }

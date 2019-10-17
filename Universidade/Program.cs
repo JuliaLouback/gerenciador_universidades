@@ -20,6 +20,7 @@ namespace Universidade
             Arquivos arquivo = new Arquivos();
             arquivo.lerProfessor();
             arquivo.lerCoordenadores();
+            arquivo.lerSetores();
             Application.Run(new Form1());
         }
     }

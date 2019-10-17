@@ -63,27 +63,27 @@ namespace Universidade.Arquivo
 
         // Setores
 
-        /*public void SalvaSetores(List<Setor> listaSetor)
+        public void SalvaSetores(List<Setor> listaSetor)
         {
-            string json = JsonConvert.SerializeObject(listaCoordenador.ToArray());
+            string json = JsonConvert.SerializeObject(listaSetor.ToArray());
 
-            File.WriteAllText(@".\listaCoordenares.txt", json);
+            File.WriteAllText(@".\listaSetores.txt", json);
         }
 
-        public void lerCoordenadores()
+        public void lerSetores()
         {
-            DaoCoodenador daoCoodenador = new DaoCoodenador();
-            string jsonFilePath = @".\listaCoordenares.txt";
+            DaoSetor daoSetor = new DaoSetor();
+            string jsonFilePath = @".\listaSetores.txt";
 
             if (File.Exists(jsonFilePath))
             {
                 string json = File.ReadAllText(jsonFilePath);
 
-                Coordenador[] listaCoordenador = JsonConvert.DeserializeObject<Coordenador[]>(json);
+                Setor[] listaSetor = JsonConvert.DeserializeObject<Setor[]>(json);
 
-                daoCoodenador.addCoordenadorLer(listaCoordenador.ToList());
+                daoSetor.addSetorLer(listaSetor.ToList());
 
             }
-        }*/
+        }
     }
 }

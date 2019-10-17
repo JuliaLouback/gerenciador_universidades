@@ -44,9 +44,20 @@ namespace Universidade.Controler
             new DaoCoodenador().excluirCoordenador(verificar);
         }
 
+        public void excluirSetor(int verificar)
+        {
+            new DaoSetor().excluirSetor(verificar);
+        }
+
         public Coordenador procurarCoordenador(int NR)
         {
             var pesquisa = new DaoCoodenador().procurarCoordenador(NR);
+            return pesquisa;
+        }
+
+        public Setor procurarSetor(int codigo)
+        {
+            var pesquisa = new DaoSetor().procurarSetor(codigo);
             return pesquisa;
         }
 

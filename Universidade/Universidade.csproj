@@ -71,6 +71,12 @@
     <Compile Include="View\CadastroCurso.Designer.cs">
       <DependentUpon>CadastroCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CadastroSetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroSetor.Designer.cs">
+      <DependentUpon>CadastroSetor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     <Compile Include="View\Professor.Designer.cs">
       <DependentUpon>Professor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Setores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Setores.Designer.cs">
+      <DependentUpon>Setores.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TelaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroCurso.resx">
       <DependentUpon>CadastroCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroSetor.resx">
+      <DependentUpon>CadastroSetor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
@@ -141,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="View\Professor.resx">
       <DependentUpon>Professor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Setores.resx">
+      <DependentUpon>Setores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TelaUsuarios.resx">
       <DependentUpon>TelaUsuarios.cs</DependentUpon>

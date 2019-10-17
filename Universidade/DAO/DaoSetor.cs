@@ -10,19 +10,19 @@ namespace Universidade.DAO
 {
     class DaoSetor
     {
-        /*private static List<Setor> listaSetor = new List<Setor>();
+        private static List<Setor> listaSetor = new List<Setor>();
         Arquivos arquivo = new Arquivos();
 
         public void addSetor(Setor Setor)
         {
             listaSetor.Add(Setor);
-            // arquivo.SalvarSetores(listaSetor);
+            arquivo.SalvaSetores(listaSetor);
         }
 
         public void addSetorLer(List<Setor> Setor)
         {
             listaSetor = Setor;
-            // arquivo.SalvarSetores(listaSetor);
+            arquivo.SalvaSetores(listaSetor);
         }
 
         public List<Setor> listarSetor()
@@ -32,14 +32,14 @@ namespace Universidade.DAO
 
         public void excluirSetor(int item)
         {
-            // listaSetor.RemoveAll(x => x.NR == item);
-            // arquivo.SalvarSetores(listaSetor);
+            listaSetor.RemoveAll(x => x.Codigo == item);
+            arquivo.SalvaSetores(listaSetor);
         }
 
         public Setor procurarSetor(int item)
         {
-            // Setor Setor = listaSetor.Find(x => x.NR == item);
-            // return Setor;
-        }*/
+            Setor Setor = listaSetor.Find(x => x.Codigo == item);
+            return Setor;
+        }
     }
 }
