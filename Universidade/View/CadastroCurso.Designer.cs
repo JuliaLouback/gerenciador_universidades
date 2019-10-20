@@ -294,6 +294,7 @@
             this.btnVoltar.TabIndex = 51;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnCadastrarUsuario
             // 

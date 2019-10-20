@@ -85,5 +85,30 @@ namespace Universidade.Arquivo
 
             }
         }
+
+        //Cursos
+
+        public void SalvarCurso(List<Curso> listaCurso)
+        {
+            string json = JsonConvert.SerializeObject(listaCurso.ToArray());
+
+            File.WriteAllText(@".\listaCurso.txt", json);
+        }
+        public void lerCurso()
+        {
+            DaoCurso daoCurso = new DaoCurso();
+            string jsonFilePath = @".\listaCurso.txt";
+
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+
+                Curso[] listaCurso = JsonConvert.DeserializeObject<Curso[]>(json);
+
+                daoCurso.addCursoLer(listaCurso.ToList());
+
+            }
+        }
+
     }
 }

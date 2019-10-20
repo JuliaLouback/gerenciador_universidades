@@ -87,5 +87,12 @@ namespace Universidade.View
                 richTextBox1.AppendText("Máteria: "+materias.Nome+"\nCódigo: "+materias.Codigo+"\nCarga Horária: "+materias.Carga_horaria+"\nProfessor: "+pesquisa.Nome+"\n\n");
             }
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {            
+            Form1 form1 = new Form1();
+            Hide();
+            form1.Show();            
+        }
     }
 }

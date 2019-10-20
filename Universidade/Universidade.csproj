@@ -52,6 +52,7 @@
     <Compile Include="Arquivo\Arquivos.cs" />
     <Compile Include="Controler\ControleClass.cs" />
     <Compile Include="DAO\DaoCoodenador.cs" />
+    <Compile Include="DAO\DaoCurso.cs" />
     <Compile Include="DAO\DaoProfessor.cs" />
     <Compile Include="DAO\DaoSetor.cs" />
     <Compile Include="Entidades\Coordenador.cs" />
