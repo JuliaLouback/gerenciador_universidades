@@ -94,7 +94,7 @@ namespace Universidade.Arquivo
 
             File.WriteAllText(@".\listaCurso.txt", json);
         }
-        public void lerCurso()
+        public void lerCurso() //Revisar
         {
             DaoCurso daoCurso = new DaoCurso();
             string jsonFilePath = @".\listaCurso.txt";

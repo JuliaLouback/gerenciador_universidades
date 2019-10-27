@@ -21,6 +21,8 @@ namespace Universidade
             arquivo.lerProfessor();
             arquivo.lerCoordenadores();
             arquivo.lerSetores();
+            arquivo.lerCurso();
+            
             Application.Run(new Form1());
         }
     }

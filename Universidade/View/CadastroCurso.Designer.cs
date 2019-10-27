@@ -144,13 +144,14 @@
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(89, 232);
             this.txtCodigo.Maximum = new decimal(new int[] {
-            -727379969,
-            232,
+            1215752191,
+            23,
             0,
             0});
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(294, 24);
             this.txtCodigo.TabIndex = 20;
+            this.txtCodigo.ValueChanged += new System.EventHandler(this.txtCodigo_ValueChanged);
             // 
             // label5
             // 
@@ -307,6 +308,7 @@
             this.btnCadastrarUsuario.TabIndex = 50;
             this.btnCadastrarUsuario.Text = "Cadastrar";
             this.btnCadastrarUsuario.UseVisualStyleBackColor = false;
+            this.btnCadastrarUsuario.Click += new System.EventHandler(this.btnCadastrarUsuario_Click);
             // 
             // CadastroCurso
             // 

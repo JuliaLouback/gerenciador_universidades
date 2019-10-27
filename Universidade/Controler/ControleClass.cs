@@ -13,6 +13,7 @@ namespace Universidade.Controler
         private DaoProfessor daoProfessor = new DaoProfessor();
         private DaoCoodenador daoCoordenador = new DaoCoodenador();
         private DaoSetor daoSetor = new DaoSetor();
+        private DaoCurso daoCurso = new DaoCurso();
 
         public void adicionarProfessor(Professores professor)
         {
@@ -73,5 +74,15 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+
+
+        //Cursos 
+
+
+        public void adicionarCurso(Curso curso)
+        {
+            daoCurso.addCurso(curso);
+        }
+       
     }
 }

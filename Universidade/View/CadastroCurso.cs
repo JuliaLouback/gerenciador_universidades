@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Universidade.Controler;
 using System.Windows.Forms;
 using Universidade.DAO;
 using Universidade.Entidades;
@@ -16,9 +17,10 @@ namespace Universidade.View
     {
         DaoCoodenador dao = new DaoCoodenador();
         DaoProfessor daoProf = new DaoProfessor();
+        DaoCurso daoCurso = new DaoCurso();
         private Curso curso = new Curso();
         private static List<Materias> listaMaterias = new List<Materias>();
-
+        public int verificar = 0;
         public CadastroCurso()
         {
             InitializeComponent();
@@ -38,6 +40,11 @@ namespace Universidade.View
 
             PrencheerCombo();
             PrencheerComboProfessor();
+
+            Random numRand = new Random();
+            txtCodigo.Value = numRand.Next(1000, 5000);     //atribuir números randômicos para as matérias e os demais NRs usando esse padrão
+            curso.Codigo = Convert.ToInt32(txtCodigo.Value); //precisa de um loop para verificar se já tem cadastro
+            
         }
 
         public void PrencheerCombo()
@@ -70,7 +77,7 @@ namespace Universidade.View
             materia.Professor_id = pesquisa.NR;
 
             listaMaterias.Add(materia);
-           
+
             txtNomeM.Text = "";
             txtCod.Value = 0;
             txtCarga.Value = 0;
@@ -84,15 +91,39 @@ namespace Universidade.View
             foreach (Materias materias in listaMaterias)
             {
                 var pesquisa = new DaoProfessor().procurarProfessor(materias.Professor_id);
-                richTextBox1.AppendText("Máteria: "+materias.Nome+"\nCódigo: "+materias.Codigo+"\nCarga Horária: "+materias.Carga_horaria+"\nProfessor: "+pesquisa.Nome+"\n\n");
+                richTextBox1.AppendText("Máteria: " + materias.Nome + "\nCódigo: " + materias.Codigo + "\nCarga Horária: " + materias.Carga_horaria + "\nProfessor: " + pesquisa.Nome + "\n\n");
             }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
-        {            
+        {
             Form1 form1 = new Form1();
             Hide();
-            form1.Show();            
+            form1.Show();
+        }
+
+        private void btnCadastrarUsuario_Click(object sender, EventArgs e)
+        {
+            
+            Curso curso = new Curso();
+            curso.Materias = listaMaterias;
+            curso.Codigo = Convert.ToInt32(txtCodigo.Value);
+            curso.Nome = txtNome.Text;
+
+            if (verificar == 0)
+            {
+                new ControleClass().adicionarCurso(curso);
+
+                MessageBox.Show("Curso cadastrado com sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+  
+        }
+
+        private void txtCodigo_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
+
+
 }

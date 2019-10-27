@@ -9,7 +9,7 @@ using Universidade.Entidades;
 
 namespace Universidade.DAO
 {
-    class DaoCurso
+    public class DaoCurso
     {
         private static List<Curso> listaCurso = new List<Curso>();
         Arquivos arquivo = new Arquivos();
@@ -28,7 +28,7 @@ namespace Universidade.DAO
 
         public List<Curso> listarCurso()
         {
-            return listaCurso;
+            return listaCurso; //Usar essa linha pra listar na tabela, sem precisar clicar em um botão (talvez)
         }
 
         public void excluirCurso(int item)
@@ -36,16 +36,21 @@ namespace Universidade.DAO
             listaCurso.RemoveAll(x => x.Codigo == item);
             arquivo.SalvarCurso(listaCurso);
         }
+        public void editarCurso(Curso cursoEditado)
+        {
+            excluirCurso(cursoEditado.Codigo); //Continuar aqui tbm
+            addCurso(cursoEditado);
+        }
 
         public Curso procurarCurso(int item)
         {
-            Curso cursoProcurarC = listaCurso.Find(x => x.Codigo == item);
+            Curso cursoProcurarC = listaCurso.Find(x => x.Codigo == item); 
             return cursoProcurarC;
         }
 
         public Curso procurarCursoNome(string item)
         {
-            Curso cursoProcurarN = listaCurso.Find(x => x.Nome == item);
+            Curso cursoProcurarN = listaCurso.Find(x => x.Nome == item); 
             return cursoProcurarN;
         }
     }
