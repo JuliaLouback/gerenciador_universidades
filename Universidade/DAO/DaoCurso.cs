@@ -12,6 +12,8 @@ namespace Universidade.DAO
     public class DaoCurso
     {
         private static List<Curso> listaCurso = new List<Curso>();
+        private static List<Materias> listaMateria = new List<Materias>();
+
         Arquivos arquivo = new Arquivos();
 
         public void addCurso(Curso curso)
@@ -28,7 +30,7 @@ namespace Universidade.DAO
 
         public List<Curso> listarCurso()
         {
-            return listaCurso; //Usar essa linha pra listar na tabela, sem precisar clicar em um botão (talvez)
+            return listaCurso; 
         }
 
         public void excluirCurso(int item)
@@ -38,7 +40,7 @@ namespace Universidade.DAO
         }
         public void editarCurso(Curso cursoEditado)
         {
-            excluirCurso(cursoEditado.Codigo); //Continuar aqui tbm
+            excluirCurso(cursoEditado.Codigo);
             addCurso(cursoEditado);
         }
 
@@ -52,6 +54,41 @@ namespace Universidade.DAO
         {
             Curso cursoProcurarN = listaCurso.Find(x => x.Nome == item); 
             return cursoProcurarN;
+        }
+
+        public List<Materias> procurarMateria(int item, int item2)
+        {
+            Curso cursoProcurarN = listaCurso.Find(x => x.Codigo == item);
+            List<Materias> listinha = new List<Materias>();
+
+            foreach(Materias cursinho in cursoProcurarN.Materias)
+            {
+                if (cursinho.Periodo == item2)
+                {
+                    listinha.Add(cursinho);
+                }
+            }
+            return listinha;
+        }
+
+        public Materias procurarMateriaNome (int item, string item2)
+        {
+            Curso cursoProcurarN = listaCurso.Find(x => x.Codigo == item);
+            Materias materia = new Materias();
+
+            foreach (Materias cursinho in cursoProcurarN.Materias)
+            {
+                if (cursinho.Nome == item2)
+                {
+                    materia = cursinho;
+                }
+            }
+            return materia;
+        }
+
+        public void excluirMateria(int item, int item2)
+        {
+          listaMateria.RemoveAll(x => x.Codigo == item2);
         }
     }
 }

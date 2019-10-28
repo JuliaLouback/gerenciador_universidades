@@ -19,6 +19,7 @@ namespace Universidade.View
         public Cursos()
         {
             InitializeComponent();
+            Preencher();
 
             cadastrarCurso.FlatStyle = FlatStyle.Flat;
             cadastrarCurso.FlatAppearance.BorderColor = Color.ForestGreen;
@@ -28,6 +29,33 @@ namespace Universidade.View
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
 
+            DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
+            editar.Name = "Editar";
+
+            editar.FlatStyle = FlatStyle.Flat;
+
+            editar.UseColumnTextForButtonValue = true;
+
+            editar.Text = "Editar";
+            int columnIndex1 = 3;
+            if (tabela.Columns["Editar"] == null)
+            {
+                tabela.Columns.Insert(columnIndex1, editar);
+            }
+
+            DataGridViewButtonColumn excluir = new DataGridViewButtonColumn();
+            excluir.Name = "Excluir";
+
+            excluir.FlatStyle = FlatStyle.Flat;
+
+            excluir.UseColumnTextForButtonValue = true;
+
+            excluir.Text = "Excluir";
+            int columnIndex = 4;
+            if (tabela.Columns["Excluir"] == null)
+            {
+                tabela.Columns.Insert(columnIndex, excluir);
+            }
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -44,9 +72,37 @@ namespace Universidade.View
             cadastroCurso.Show();
         }
 
-        private void btnListarCurso_Click(object sender, EventArgs e)
-        { 
-          //Não sei se esse botão é necessário. Eu fiz sem pensar no design. Talvez uma tabela seja necessária como nos outros cadastros (manter um padrão)
+        public void Preencher()
+        {
+
+            List<Curso> lstUsr = new ControleClass().listarCurso();
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+               Código = usuario.Codigo,
+               Nome = usuario.Nome,
+               Período = usuario.QuantidadePeriodo
+        }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            this.tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+
+        private void tabela_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
+            {
+                new ControleClass().excluirCurso(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                MessageBox.Show("Curso Excluído com sucesso!", "Curso Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Preencher();
+            }
+            else if (e.ColumnIndex == tabela.Columns["Editar"].Index)
+            {
+                EdicaoCurso cadastroCurso = new EdicaoCurso(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                Hide();
+                cadastroCurso.Show();
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -66,20 +122,6 @@ namespace Universidade.View
             
         }
 
-        private void btn_Editar_Click(object sender, EventArgs e)
-        {
-            int filtro;
-            int.TryParse(txtFiltro.Text, out filtro);
-            if (filtro != 0)
-            {
-              //Chamar a tela de cadastro CadastroCurso passando o filtro (Código). Ao carregar a tela com o parâmetro, 
-              //carregar as textbox com o conteúdo da classe. Utilizar o método procurarCurso
-            }
-            else
-            {
-                MessageBox.Show("Código inválido!", "Atenção"); //Colocar o ícone de informação 
-            }
-        }
 
         private void btn_ProcurarCodigo_Click(object sender, EventArgs e)
         {

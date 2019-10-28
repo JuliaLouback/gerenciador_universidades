@@ -14,6 +14,8 @@ namespace Universidade.Entidades
 
         public int Carga_horaria { get; set; }
 
+        public int Periodo { get; set; }
+
         public int Professor_id { get; set; }
     }
 }

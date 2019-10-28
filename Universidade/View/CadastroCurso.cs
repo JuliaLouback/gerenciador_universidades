@@ -15,12 +15,13 @@ namespace Universidade.View
 {
     public partial class CadastroCurso : Form
     {
-        DaoCoodenador dao = new DaoCoodenador();
-        DaoProfessor daoProf = new DaoProfessor();
-        DaoCurso daoCurso = new DaoCurso();
-        private Curso curso = new Curso();
+        DaoCoodenador dao       = new DaoCoodenador();
+        DaoProfessor daoProf    = new DaoProfessor();
+
+        private Curso curso     = new Curso();
+
         private static List<Materias> listaMaterias = new List<Materias>();
-        public int verificar = 0;
+
         public CadastroCurso()
         {
             InitializeComponent();
@@ -40,11 +41,10 @@ namespace Universidade.View
 
             PrencheerCombo();
             PrencheerComboProfessor();
-
+           
             Random numRand = new Random();
             txtCodigo.Value = numRand.Next(1000, 5000);     //atribuir números randômicos para as matérias e os demais NRs usando esse padrão
-            curso.Codigo = Convert.ToInt32(txtCodigo.Value); //precisa de um loop para verificar se já tem cadastro
-            
+            curso.Codigo = Convert.ToInt32(txtCodigo.Value); //precisa de um loop para verificar se já tem cadastro   
         }
 
         public void PrencheerCombo()
@@ -69,19 +69,27 @@ namespace Universidade.View
         {
             Materias materia = new Materias();
 
-            materia.Nome = txtNomeM.Text;
-            materia.Codigo = Convert.ToInt32(txtCod.Value);
-            materia.Carga_horaria = Convert.ToInt32(txtCarga.Value);
+            materia.Nome            = txtNomeM.Text;
+            materia.Codigo          = Convert.ToInt32(txtCod.Value);
+            materia.Carga_horaria   = Convert.ToInt32(txtCarga.Value);
+            materia.Periodo         = Convert.ToInt32(txtPeriodo.Text);
 
-            var pesquisa = new DaoProfessor().procurarProfessorNome(txtProfessor.Text);
-            materia.Professor_id = pesquisa.NR;
+            var pesquisa            = new DaoProfessor().procurarProfessorNome(txtProfessor.Text);
+            pesquisa.Curso          = txtNome.Text;
+            pesquisa.Materia        = txtNomeM.Text;
 
+            materia.Professor_id    = pesquisa.NR;
+           
             listaMaterias.Add(materia);
 
-            txtNomeM.Text = "";
-            txtCod.Value = 0;
-            txtCarga.Value = 0;
-            txtProfessor.Text = "";
+            new ControleClass().excluirProfessor(pesquisa.NR);
+            new ControleClass().adicionarProfessor(pesquisa);
+
+            txtNomeM.Text       = "";
+            txtCod.Value        = 0;
+            txtCarga.Value      = 0;
+            txtProfessor.Text   = "";
+            txtPeriodo.Text     = "";
             listar();
         }
 
@@ -97,29 +105,51 @@ namespace Universidade.View
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            Cursos curso = new Cursos();
             Hide();
-            form1.Show();
+            curso.Show();
         }
 
         private void btnCadastrarUsuario_Click(object sender, EventArgs e)
         {
             
             Curso curso = new Curso();
-            curso.Materias = listaMaterias;
-            curso.Codigo = Convert.ToInt32(txtCodigo.Value);
-            curso.Nome = txtNome.Text;
 
-            if (verificar == 0)
-            {
-                new ControleClass().adicionarCurso(curso);
+            curso.Materias              = listaMaterias;
+            curso.Codigo                = Convert.ToInt32(txtCodigo.Value);
+            curso.Nome                  = txtNome.Text;
+            curso.QuantidadePeriodo     = Convert.ToInt32(txtQuantidadePeriodo.Text);
 
-                MessageBox.Show("Curso cadastrado com sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            var pesquisaCood = new ControleClass().procurarCoordenadorNome(txtCoordenador.Text);
+            pesquisaCood.Curso = txtNome.Text;
+
+            curso.Coordernador_id = pesquisaCood.NR;
+
+            new ControleClass().excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
+            new ControleClass().adicionarCoordenador(pesquisaCood);
+
+            new ControleClass().adicionarCurso(curso);
+
+            MessageBox.Show("Curso cadastrado com sucesso!", "Curso cadastrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
   
         }
 
         private void txtCodigo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CadastroCurso_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RichTextBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }

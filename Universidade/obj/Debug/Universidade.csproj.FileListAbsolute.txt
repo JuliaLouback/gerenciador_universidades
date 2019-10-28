@@ -69,3 +69,4 @@ C:\Users\kahns\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csp
 C:\Users\kahns\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.CopyComplete
 C:\Users\kahns\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.exe
 C:\Users\kahns\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.pdb
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.EdicaoCurso.resources

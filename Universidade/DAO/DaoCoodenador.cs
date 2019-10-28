@@ -41,5 +41,11 @@ namespace Universidade.DAO
             Coordenador coordenador = listaCoordenador.Find(x => x.NR == item);
             return coordenador;
         }
+
+        public Coordenador procurarCoordenadorNome(string item)
+        {
+            Coordenador coordenador = listaCoordenador.Find(x => x.Nome == item);
+            return coordenador;
+        }
     }
 }

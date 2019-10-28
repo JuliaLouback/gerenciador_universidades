@@ -50,9 +50,21 @@ namespace Universidade.Controler
             new DaoSetor().excluirSetor(verificar);
         }
 
+        public void excluirCurso(int verificar)
+        {
+            new DaoCurso().excluirCurso(verificar);
+        }
+
+
         public Coordenador procurarCoordenador(int NR)
         {
             var pesquisa = new DaoCoodenador().procurarCoordenador(NR);
+            return pesquisa;
+        }
+
+        public Coordenador procurarCoordenadorNome(string Nome)
+        {
+            var pesquisa = new DaoCoodenador().procurarCoordenadorNome(Nome);
             return pesquisa;
         }
 
@@ -62,9 +74,51 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        public Professores procurarProfessor(int codigo)
+        {
+            var pesquisa = new DaoProfessor().procurarProfessor(codigo);
+            return pesquisa;
+        }
+
+        public void excluirMateria(int codigo, int codigo2)
+        {
+           new DaoCurso().excluirMateria(codigo, codigo2);
+        }
+
+        public Professores procurarProfessorNome(string codigo)
+        {
+            var pesquisa = new DaoProfessor().procurarProfessorNome(codigo);
+            return pesquisa;
+        }
+
+        public List<Materias> procurarMateria(int verificar, int v)
+        {
+            List<Materias> listinha = new List<Materias>();
+            listinha = new DaoCurso().procurarMateria(verificar, v);
+            return listinha;
+        }
+
+        public Materias procurarMateriaNome(int codigo, string item)
+        {
+            var pesquisa = new DaoCurso().procurarMateriaNome(codigo, item);
+            return pesquisa;
+        }
+
+        public Curso procurarCurso(int codigo)
+        {
+            var pesquisa = new DaoCurso().procurarCurso(codigo);
+            return pesquisa;
+        }
+
         public List<Professores> listarProfessor()
         {
             var pesquisa = new  DaoProfessor().listarProfessor();
+            return pesquisa;
+        }
+
+        public List<Coordenador> listarCoordenador()
+        {
+            var pesquisa = new DaoCoodenador().listarCoordenador();
             return pesquisa;
         }
 
@@ -74,15 +128,18 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
-
-
         //Cursos 
-
 
         public void adicionarCurso(Curso curso)
         {
             daoCurso.addCurso(curso);
         }
-       
+
+        public List<Curso> listarCurso()
+        {
+            var pesquisa = new DaoCurso().listarCurso();
+            return pesquisa;
+        }
+
     }
 }

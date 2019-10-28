@@ -97,6 +97,12 @@
     <Compile Include="View\Cursos.Designer.cs">
       <DependentUpon>Cursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EdicaoCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EdicaoCurso.Designer.cs">
+      <DependentUpon>EdicaoCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EdicaoCurso.resx">
+      <DependentUpon>EdicaoCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
