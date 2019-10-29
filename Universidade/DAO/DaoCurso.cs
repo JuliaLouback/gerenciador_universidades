@@ -13,6 +13,7 @@ namespace Universidade.DAO
     {
         private static List<Curso> listaCurso = new List<Curso>();
         private static List<Materias> listaMateria = new List<Materias>();
+        private static List<Professores> listaProfessor = new List<Professores>();
 
         Arquivos arquivo = new Arquivos();
 
@@ -86,6 +87,7 @@ namespace Universidade.DAO
             return materia;
         }
 
+    
         public void excluirMateria(int item, int item2)
         {
           listaMateria.RemoveAll(x => x.Codigo == item2);

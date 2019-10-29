@@ -15,6 +15,7 @@ namespace Universidade.Controler
         private DaoSetor daoSetor = new DaoSetor();
         private DaoCurso daoCurso = new DaoCurso();
 
+        // ADICIONAR 
         public void adicionarProfessor(Professores professor)
         {
             daoProfessor.addProfessor(professor);
@@ -35,6 +36,12 @@ namespace Universidade.Controler
             new DaoSetor().excluirSetor(verificar);
         }
 
+        public void adicionarCurso(Curso curso)
+        {
+            daoCurso.addCurso(curso);
+        }
+
+        // EXCLUIR
         public void excluirProfessor(int verificar)
         {
             new DaoProfessor().excluirProfessor(verificar);
@@ -55,6 +62,12 @@ namespace Universidade.Controler
             new DaoCurso().excluirCurso(verificar);
         }
 
+        public void excluirMateria(int codigo, int codigo2)
+        {
+            new DaoCurso().excluirMateria(codigo, codigo2);
+        }
+
+        // PROCURAR
 
         public Coordenador procurarCoordenador(int NR)
         {
@@ -80,11 +93,6 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
-        public void excluirMateria(int codigo, int codigo2)
-        {
-           new DaoCurso().excluirMateria(codigo, codigo2);
-        }
-
         public Professores procurarProfessorNome(string codigo)
         {
             var pesquisa = new DaoProfessor().procurarProfessorNome(codigo);
@@ -104,11 +112,14 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+
         public Curso procurarCurso(int codigo)
         {
             var pesquisa = new DaoCurso().procurarCurso(codigo);
             return pesquisa;
         }
+
+        // LISTAR
 
         public List<Professores> listarProfessor()
         {
@@ -126,13 +137,6 @@ namespace Universidade.Controler
         {
             var pesquisa = new DaoSetor().listarSetor();
             return pesquisa;
-        }
-
-        //Cursos 
-
-        public void adicionarCurso(Curso curso)
-        {
-            daoCurso.addCurso(curso);
         }
 
         public List<Curso> listarCurso()

@@ -15,7 +15,7 @@ namespace Universidade.View
 {
     public partial class Cursos : Form
     {
-        DaoCurso daoCurso = new DaoCurso();
+        ControleClass controleClasse = new ControleClass();
         public Cursos()
         {
             InitializeComponent();
@@ -75,7 +75,7 @@ namespace Universidade.View
         public void Preencher()
         {
 
-            List<Curso> lstUsr = new ControleClass().listarCurso();
+            List<Curso> lstUsr = controleClasse.listarCurso();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
                Código = usuario.Codigo,
@@ -84,8 +84,8 @@ namespace Universidade.View
         }).ToList();
 
             tabela.DataSource = novaListUsuario;
-            this.tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
             tabela.CellClick += tabela_CellClick;
         }
 
@@ -93,8 +93,10 @@ namespace Universidade.View
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                new ControleClass().excluirCurso(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                controleClasse.excluirCurso(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+
                 MessageBox.Show("Curso Excluído com sucesso!", "Curso Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 Preencher();
             }
             else if (e.ColumnIndex == tabela.Columns["Editar"].Index)
@@ -107,30 +109,18 @@ namespace Universidade.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int filtro;
-            int.TryParse(txtFiltro.Text, out filtro);
-            if (filtro != 0)
-            {
-                daoCurso.excluirCurso(filtro);
-                //Precisa adicionar um MessageBox perguntando se deseja realmente excluir o cadastro e atribuir as devidas condições (esqueci como faz)
-                //Está funcionando :D
-            }
-            else
-            {
-                MessageBox.Show("Código não encontrado!", "Atenção");
-            }
             
         }
 
 
         private void btn_ProcurarCodigo_Click(object sender, EventArgs e)
         {
-            //Vai precisar desse botão? 
+            
         }
 
         private void btn_ProcurarNome_Click(object sender, EventArgs e)
         {
-            daoCurso.procurarCursoNome(txtFiltro.Text); //terminar
+           
         }
     }
 }

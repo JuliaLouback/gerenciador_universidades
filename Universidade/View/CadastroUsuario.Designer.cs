@@ -69,6 +69,10 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCheck = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtCurso = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtMateria = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).BeginInit();
@@ -475,7 +479,7 @@
             // 
             this.txtCheck.AutoSize = true;
             this.txtCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheck.Location = new System.Drawing.Point(309, 379);
+            this.txtCheck.Location = new System.Drawing.Point(307, 380);
             this.txtCheck.Name = "txtCheck";
             this.txtCheck.Size = new System.Drawing.Size(55, 24);
             this.txtCheck.TabIndex = 59;
@@ -487,17 +491,61 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(304, 333);
+            this.label17.Location = new System.Drawing.Point(302, 333);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(158, 25);
             this.label17.TabIndex = 60;
             this.label17.Text = "É coodenador?";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.DimGray;
+            this.label20.Location = new System.Drawing.Point(465, 333);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(69, 25);
+            this.label20.TabIndex = 62;
+            this.label20.Text = "Curso";
+            // 
+            // txtCurso
+            // 
+            this.txtCurso.Enabled = false;
+            this.txtCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurso.Location = new System.Drawing.Point(470, 379);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.Size = new System.Drawing.Size(169, 24);
+            this.txtCurso.TabIndex = 61;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.DimGray;
+            this.label22.Location = new System.Drawing.Point(676, 333);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(84, 25);
+            this.label22.TabIndex = 64;
+            this.label22.Text = "Matéria";
+            // 
+            // txtMateria
+            // 
+            this.txtMateria.Enabled = false;
+            this.txtMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMateria.Location = new System.Drawing.Point(681, 379);
+            this.txtMateria.Name = "txtMateria";
+            this.txtMateria.Size = new System.Drawing.Size(140, 24);
+            this.txtMateria.TabIndex = 63;
             // 
             // CadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 749);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txtMateria);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.txtCurso);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtCheck);
             this.Controls.Add(this.label21);
@@ -593,5 +641,9 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.CheckBox txtCheck;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtCurso;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtMateria;
     }
 }

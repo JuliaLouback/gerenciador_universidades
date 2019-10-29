@@ -512,9 +512,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroCoordenador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CadastroCoordenador";
+            this.Text = "Sistema de Gerencimento de Universidades";
             ((System.ComponentModel.ISupportInitialize)(this.txtNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).EndInit();

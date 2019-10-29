@@ -15,8 +15,7 @@ namespace Universidade.View
 {
     public partial class CadastroCurso : Form
     {
-        DaoCoodenador dao       = new DaoCoodenador();
-        DaoProfessor daoProf    = new DaoProfessor();
+        ControleClass controles = new ControleClass();
 
         private Curso curso     = new Curso();
 
@@ -49,7 +48,7 @@ namespace Universidade.View
 
         public void PrencheerCombo()
         {
-            var listaCoordenador = dao.listarCoordenador();
+            var listaCoordenador = controles.listarCoordenador();
             foreach (Coordenador coord in listaCoordenador)
             {
                 txtCoordenador.Items.Add(coord.Nome);
@@ -58,7 +57,7 @@ namespace Universidade.View
 
         public void PrencheerComboProfessor()
         {
-            var listaProfessor = daoProf.listarProfessor();
+            var listaProfessor = controles.listarProfessor();
             foreach (Professores professores in listaProfessor)
             {
                 txtProfessor.Items.Add(professores.Nome);
@@ -82,8 +81,8 @@ namespace Universidade.View
            
             listaMaterias.Add(materia);
 
-            new ControleClass().excluirProfessor(pesquisa.NR);
-            new ControleClass().adicionarProfessor(pesquisa);
+            controles.excluirProfessor(pesquisa.NR);
+            controles.adicionarProfessor(pesquisa);
 
             txtNomeM.Text       = "";
             txtCod.Value        = 0;
@@ -98,7 +97,7 @@ namespace Universidade.View
             richTextBox1.Clear();
             foreach (Materias materias in listaMaterias)
             {
-                var pesquisa = new DaoProfessor().procurarProfessor(materias.Professor_id);
+                var pesquisa = controles.procurarProfessor(materias.Professor_id);
                 richTextBox1.AppendText("Máteria: " + materias.Nome + "\nCódigo: " + materias.Codigo + "\nCarga Horária: " + materias.Carga_horaria + "\nProfessor: " + pesquisa.Nome + "\n\n");
             }
         }
@@ -120,15 +119,15 @@ namespace Universidade.View
             curso.Nome                  = txtNome.Text;
             curso.QuantidadePeriodo     = Convert.ToInt32(txtQuantidadePeriodo.Text);
 
-            var pesquisaCood = new ControleClass().procurarCoordenadorNome(txtCoordenador.Text);
+            var pesquisaCood = controles.procurarCoordenadorNome(txtCoordenador.Text);
             pesquisaCood.Curso = txtNome.Text;
 
             curso.Coordernador_id = pesquisaCood.NR;
 
-            new ControleClass().excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
-            new ControleClass().adicionarCoordenador(pesquisaCood);
+            controles.excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
+            controles.adicionarCoordenador(pesquisaCood);
 
-            new ControleClass().adicionarCurso(curso);
+            controles.adicionarCurso(curso);
 
             MessageBox.Show("Curso cadastrado com sucesso!", "Curso cadastrado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
   

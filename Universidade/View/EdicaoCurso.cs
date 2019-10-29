@@ -14,9 +14,13 @@ namespace Universidade.View
 {
     public partial class EdicaoCurso : Form
     {
+        ControleClass controles = new ControleClass();
+
         public int verificar = 0;
         private static List<Materias> listaMaterias = new List<Materias>();
         public string NomeCoor;
+        public string NomeProf;
+        Professores prof = new Professores();
 
         public EdicaoCurso(int codigo)
         {
@@ -45,7 +49,7 @@ namespace Universidade.View
 
             verificar = codigo;
 
-            var pesquisa = new ControleClass().procurarCurso(verificar);
+            var pesquisa = controles.procurarCurso(verificar);
 
             PreencherCampos(pesquisa);
             PrencheerCombo();
@@ -56,7 +60,7 @@ namespace Universidade.View
         {
             txtCodigo.Value     = item.Codigo;
             txtNome.Text        = item.Nome;
-            var pesquisaCoor    = new ControleClass().procurarCoordenador(item.Coordernador_id);
+            var pesquisaCoor    = controles.procurarCoordenador(item.Coordernador_id);
             txtCoordenador.Text = pesquisaCoor.Nome;
             NomeCoor            = pesquisaCoor.Nome;
             txtQuantidadePeriodo.Text = Convert.ToString(item.QuantidadePeriodo);
@@ -66,7 +70,7 @@ namespace Universidade.View
         private void TxtPeriodo_SelectedValueChanged(object sender, EventArgs e)
         {
             txtNomeM.Items.Clear();
-            List<Materias> listinha = new ControleClass().procurarMateria(verificar, Convert.ToInt32(txtPeriodo.Text));
+            List<Materias> listinha = controles.procurarMateria(verificar, Convert.ToInt32(txtPeriodo.Text));
 
             foreach (Materias mat in listinha)
             {
@@ -76,7 +80,7 @@ namespace Universidade.View
 
         public void PrencheerCombo()
         {
-            var listaCoordenador = new ControleClass().listarCoordenador();
+            var listaCoordenador = controles.listarCoordenador();
             foreach (Coordenador coord in listaCoordenador)
             {
                 txtCoordenador.Items.Add(coord.Nome);
@@ -85,7 +89,7 @@ namespace Universidade.View
 
         public void PrencheerComboProfessor()
         {
-            var listaProfessor = new ControleClass().listarProfessor();
+            var listaProfessor = controles.listarProfessor();
             foreach (Professores professores in listaProfessor)
             {
                 txtProfessor.Items.Add(professores.Nome);
@@ -95,13 +99,15 @@ namespace Universidade.View
 
         private void TxtNomeM_SelectedValueChanged(object sender, EventArgs e)
         {
-            var listinhas = new ControleClass().procurarMateriaNome(verificar, txtNomeM.Text);
+            var listinhas = controles.procurarMateriaNome(verificar, txtNomeM.Text);
 
             txtCod.Value = listinhas.Codigo;
             txtCarga.Value = listinhas.Carga_horaria;
 
-            var listinhas2 = new ControleClass().procurarProfessor(listinhas.Professor_id);
+            var listinhas2 = controles.procurarProfessor(listinhas.Professor_id);
             txtProfessor.Text = listinhas2.Nome;
+            NomeProf = txtProfessor.Text;
+            prof = listinhas2;
         }
 
         private void EditarItem_Click(object sender, EventArgs e)
@@ -113,7 +119,7 @@ namespace Universidade.View
             materia.Carga_horaria   = Convert.ToInt32(txtCarga.Value);
             materia.Periodo         = Convert.ToInt32(txtPeriodo.Text);
 
-            var pesquisa = new ControleClass().procurarProfessorNome(txtProfessor.Text);
+            var pesquisa = controles.procurarProfessorNome(txtProfessor.Text);
             pesquisa.Curso = txtNome.Text;
             pesquisa.Materia = txtNomeM.Text;
 
@@ -123,8 +129,22 @@ namespace Universidade.View
 
             listaMaterias.Add(materia);
 
-            new ControleClass().excluirProfessor(pesquisa.NR);
-            new ControleClass().adicionarProfessor(pesquisa);
+            if (NomeProf == txtProfessor.Text)
+            {
+                controles.excluirProfessor(pesquisa.NR);
+                controles.adicionarProfessor(pesquisa);
+            }
+            else
+            {
+                var pesquisaProf2 = controles.procurarProfessorNome(NomeProf);
+                pesquisaProf2.Curso = "";
+                pesquisaProf2.Materia = "";
+                controles.excluirProfessor(Convert.ToInt32(pesquisaProf2.NR));
+                controles.adicionarProfessor(pesquisaProf2);
+
+                controles.excluirProfessor(Convert.ToInt32(pesquisa.NR));
+                controles.adicionarProfessor(pesquisa);
+            }
 
             MessageBox.Show("Matéria editada com sucesso!", "Matéria editada!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -144,7 +164,7 @@ namespace Universidade.View
             materia.Carga_horaria = Convert.ToInt32(txtNCargo.Value);
             materia.Periodo = Convert.ToInt32(txtNPeriodo.Text);
 
-            var pesquisa = new ControleClass().procurarProfessorNome(txtNProfessor.Text);
+            var pesquisa = controles.procurarProfessorNome(txtNProfessor.Text);
             pesquisa.Curso   = txtNome.Text;
             pesquisa.Materia = txtNNome.Text;
 
@@ -152,8 +172,8 @@ namespace Universidade.View
 
             listaMaterias.Add(materia);
 
-            new ControleClass().excluirProfessor(pesquisa.NR);
-            new ControleClass().adicionarProfessor(pesquisa);
+            controles.excluirProfessor(pesquisa.NR);
+            controles.adicionarProfessor(pesquisa);
 
             MessageBox.Show("Matéria cadastrada com sucesso!", "Matéria cadastrada!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -173,28 +193,28 @@ namespace Universidade.View
             curso.Nome = txtNome.Text;
             curso.QuantidadePeriodo = Convert.ToInt32(txtQuantidadePeriodo.Text);
 
-            var pesquisaCood = new ControleClass().procurarCoordenadorNome(txtCoordenador.Text);
+            var pesquisaCood = controles.procurarCoordenadorNome(txtCoordenador.Text);
             pesquisaCood.Curso = txtNome.Text; 
 
             curso.Coordernador_id = pesquisaCood.NR;
             if (NomeCoor == txtCoordenador.Text)
             {
-                new ControleClass().excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
-                new ControleClass().adicionarCoordenador(pesquisaCood);
+                controles.excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
+                controles.adicionarCoordenador(pesquisaCood);
             } else
             {
-                var pesquisaCood2 = new ControleClass().procurarCoordenadorNome(NomeCoor);
+                var pesquisaCood2 = controles.procurarCoordenadorNome(NomeCoor);
                 pesquisaCood2.Curso = "";
-                new ControleClass().excluirCoordenador(Convert.ToInt32(pesquisaCood2.NR));
-                new ControleClass().adicionarCoordenador(pesquisaCood2);
+                controles.excluirCoordenador(Convert.ToInt32(pesquisaCood2.NR));
+                controles.adicionarCoordenador(pesquisaCood2);
 
-                new ControleClass().excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
-                new ControleClass().adicionarCoordenador(pesquisaCood);
+                controles.excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
+                controles.adicionarCoordenador(pesquisaCood);
             }
            
 
-            new ControleClass().excluirCurso(Convert.ToInt32(txtCodigo.Value));
-            new ControleClass().adicionarCurso(curso);
+            controles.excluirCurso(Convert.ToInt32(txtCodigo.Value));
+            controles.adicionarCurso(curso);
 
             MessageBox.Show("Curso editado com sucesso!", "Curso editado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

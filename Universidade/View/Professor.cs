@@ -76,8 +76,8 @@ namespace Universidade.View
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
-            this.tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
             tabela.CellClick += tabela_CellClick;
         }
 

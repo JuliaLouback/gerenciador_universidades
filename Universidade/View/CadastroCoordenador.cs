@@ -98,7 +98,7 @@ namespace Universidade.View
                 new ControleClass().excluirCoordenador(verificar);
                 new ControleClass().adicionarCoordenador(coordenador);
 
-                var pesquisa = new DaoProfessor().procurarProfessor(verificar);
+                var pesquisa = new ControleClass().procurarProfessor(verificar);
                 if (pesquisa != null)
                 {
                     pesquisa.Nome = txtNome.Text;

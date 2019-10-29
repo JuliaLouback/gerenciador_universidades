@@ -16,7 +16,7 @@ namespace Universidade.View
     public partial class Coordenadores : Form
     {
 
-        private static DaoCoodenador dao = new DaoCoodenador();
+        ControleClass controle = new ControleClass();
 
         public Coordenadores()
         {
@@ -64,7 +64,7 @@ namespace Universidade.View
         public void Preencher()
         {
 
-            List<Coordenador> lstUsr = dao.listarCoordenador();
+            List<Coordenador> lstUsr = controle.listarCoordenador();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
                 NR = usuario.NR,
@@ -75,8 +75,8 @@ namespace Universidade.View
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
-            this.tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
             tabela.CellClick += tabela_CellClick;
         }
 
@@ -84,7 +84,7 @@ namespace Universidade.View
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                dao.excluirCoordenador(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                controle.excluirCoordenador(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
                 MessageBox.Show("Usuário Excluído com sucesso!", "Usuário Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Preencher();
             }

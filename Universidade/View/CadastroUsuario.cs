@@ -18,6 +18,7 @@ namespace Universidade
     public partial class CadastroUsuario : Form
     {
         public int verificar = 0;
+        ControleClass controleClasse = new ControleClass();
      
         public CadastroUsuario(int NR)
         {
@@ -36,7 +37,7 @@ namespace Universidade
                 verificar = NR;
                 btnCadastrarUsuario.Text = "Editar";
                 label3.Text = "Edição de Professor";
-                var pesquisa = new DaoProfessor().procurarProfessor(NR);
+                var pesquisa = controleClasse.procurarProfessor(NR);
                 PreencherCampos(pesquisa);
             }
         }
@@ -59,6 +60,8 @@ namespace Universidade
             txtCidade.Text      = item.Endereco.Cidade;
             txtTelefoneCelular.Text = item.Telefone.TelefoneCelular;
             txtTelefoneFixo.Text    = item.Telefone.TelefoneFixo;
+            txtCurso.Text           = item.Curso;
+            txtMateria.Text         = item.Materia;
         }
         private void BtnCadastrarUsuario_Click(object sender, EventArgs e)
         {
@@ -85,14 +88,17 @@ namespace Universidade
             telefone.TelefoneFixo    = txtTelefoneFixo.Text;
             telefone.TelefoneCelular = txtTelefoneCelular.Text;
 
-            professor.Endereco = endereco;
-            professor.Telefone = telefone;
+            professor.Endereco  = endereco;
+            professor.Telefone  = telefone;
+            professor.Materia   = txtMateria.Text;
+            professor.Curso     = txtCurso.Text;
          
 
             if (verificar == 0)
             {
+
                 if (txtCheck.Checked == true) {
-                    new ControleClass().adicionarProfessor(professor);
+                    controleClasse.adicionarProfessor(professor);
 
                     Coordenador coodenador = new Coordenador();
 
@@ -107,14 +113,19 @@ namespace Universidade
                     coodenador.Endereco = endereco;
                     coodenador.Telefone = telefone;
 
-                    new ControleClass().adicionarCoordenador(coodenador);
+                    controleClasse.adicionarCoordenador(coodenador);
 
                     MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } 
+                } else
+                {
+                    controleClasse.adicionarProfessor(professor);
+
+                    MessageBox.Show("Seu cadastro foi editado com sucesso!", "Cadastro editado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                var pesquisa = new DaoCoodenador().procurarCoordenador(verificar);
+                var pesquisa = new ControleClass().procurarCoordenador(verificar);
                 if (pesquisa != null)
                 {
                     pesquisa.Nome = txtNome.Text;
@@ -129,19 +140,20 @@ namespace Universidade
                     pesquisa.Endereco = endereco;
                     pesquisa.Telefone = telefone;
 
-                    new DaoCoodenador().excluirCoordenador(verificar);
-                    new ControleClass().adicionarCoordenador(pesquisa);
+                    controleClasse.excluirCoordenador(verificar);
+                    controleClasse.adicionarCoordenador(pesquisa);
 
                 }
-                new DaoProfessor().excluirProfessor(verificar);
-                new ControleClass().adicionarProfessor(professor);
+                controleClasse.excluirProfessor(verificar);
+                controleClasse.adicionarProfessor(professor);
+
                 MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
-            TelaUsuarios telaUsuario = new TelaUsuarios();
+            Professor telaUsuario = new Professor();
             Hide();
             telaUsuario.Show();
         }
