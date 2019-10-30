@@ -32,7 +32,7 @@ namespace Universidade.View
             {
                 verificar = codigo;
                 btnCadastrarUsuario.Text = "Editar";
-                label3.Text = "Edição de Professor";
+                label3.Text = "Edição de Setor";
                 var pesquisa = new ControleClass().procurarSetor(codigo);
                 PreencherCampos(pesquisa);
             }

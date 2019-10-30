@@ -110,5 +110,32 @@ namespace Universidade.Arquivo
             }
         }
 
+
+        //Funcionários
+
+        public void SalvarFuncionario(List<Funcionario> listaFuncionario)
+        {
+
+            string json = JsonConvert.SerializeObject(listaFuncionario.ToArray());
+
+            File.WriteAllText(@".\listaFuncionario.txt", json);
+
+        }
+        public void lerFuncionario()
+        {
+            DaoFuncionario daoFuncionario = new DaoFuncionario();
+            string jsonFilePath = @".\listaFuncionario.txt";
+
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+
+                Funcionario[] listaFuncionario= JsonConvert.DeserializeObject<Funcionario[]>(json);
+
+                daoFuncionario.lerFuncionarios(listaFuncionario.ToList());
+            }
+        }
+
+
     }
 }

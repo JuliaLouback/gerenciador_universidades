@@ -53,13 +53,21 @@
     <Compile Include="Controler\ControleClass.cs" />
     <Compile Include="DAO\DaoCoodenador.cs" />
     <Compile Include="DAO\DaoCurso.cs" />
+    <Compile Include="DAO\DaoFuncionario.cs" />
     <Compile Include="DAO\DaoProfessor.cs" />
     <Compile Include="DAO\DaoSetor.cs" />
     <Compile Include="Entidades\Coordenador.cs" />
     <Compile Include="Entidades\Curso.cs" />
+    <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Materias.cs" />
     <Compile Include="Entidades\Professores.cs" />
     <Compile Include="Entidades\Setor.cs" />
+    <Compile Include="View\CadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroFuncionario.Designer.cs">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CadastroCoordenador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +121,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entidades\Telefone.cs" />
+    <Compile Include="View\Funcionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionarios.Designer.cs">
+      <DependentUpon>Funcionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Professor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +145,9 @@
     <Compile Include="View\TelaUsuarios.Designer.cs">
       <DependentUpon>TelaUsuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CadastroFuncionario.resx">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroCoordenador.resx">
       <DependentUpon>CadastroCoordenador.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +181,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Funcionarios.resx">
+      <DependentUpon>Funcionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Professor.resx">
       <DependentUpon>Professor.cs</DependentUpon>
     </EmbeddedResource>

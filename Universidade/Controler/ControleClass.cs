@@ -12,6 +12,7 @@ namespace Universidade.Controler
     {
         private DaoProfessor daoProfessor = new DaoProfessor();
         private DaoCoodenador daoCoordenador = new DaoCoodenador();
+        private DaoFuncionario daoFuncionario = new DaoFuncionario();
         private DaoSetor daoSetor = new DaoSetor();
         private DaoCurso daoCurso = new DaoCurso();
 
@@ -40,6 +41,10 @@ namespace Universidade.Controler
         {
             daoCurso.addCurso(curso);
         }
+        public void adicionarFuncionario(Funcionario funcionario)
+        {
+            daoFuncionario.addFuncionario(funcionario);
+        }
 
         // EXCLUIR
         public void excluirProfessor(int verificar)
@@ -65,6 +70,11 @@ namespace Universidade.Controler
         public void excluirMateria(int codigo, int codigo2)
         {
             new DaoCurso().excluirMateria(codigo, codigo2);
+        }
+
+        public void excluirFuncionario(int verificar)
+        {
+            new DaoFuncionario().excluirFuncionario(verificar);
         }
 
         // PROCURAR
@@ -119,6 +129,18 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        public Funcionario procurarFuncionario(int codigo)
+        {
+            var pesquisa = new DaoFuncionario().procurarFuncionario(codigo);
+            return pesquisa;
+        }
+
+        public Funcionario procurarFuncionarioNome(string codigo)
+        {
+            var pesquisa = new DaoFuncionario().procurarFuncionarioNome(codigo);
+            return pesquisa;
+        }
+
         // LISTAR
 
         public List<Professores> listarProfessor()
@@ -142,6 +164,12 @@ namespace Universidade.Controler
         public List<Curso> listarCurso()
         {
             var pesquisa = new DaoCurso().listarCurso();
+            return pesquisa;
+        }
+
+        public List<Funcionario> listarFuncionario()
+        {
+            var pesquisa = new DaoFuncionario().listarFuncionarios();
             return pesquisa;
         }
 

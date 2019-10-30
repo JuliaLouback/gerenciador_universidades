@@ -55,5 +55,12 @@ namespace Universidade.View
             Hide();
             coordenador.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Funcionarios funcionarios = new Funcionarios();
+            Hide();
+            funcionarios.Show();
+        }
     }
 }
