@@ -62,5 +62,12 @@ namespace Universidade.View
             Hide();
             funcionarios.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Aluno aluno = new Aluno();
+            Hide();
+            aluno.Show();
+        }
     }
 }

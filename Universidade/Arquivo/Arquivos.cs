@@ -13,7 +13,7 @@ namespace Universidade.Arquivo
 {
     class Arquivos
     {
-      
+
         public void SalvarProfessor(List<Professores> listaProfessor)
         {
             string json = JsonConvert.SerializeObject(listaProfessor.ToArray());
@@ -26,11 +26,12 @@ namespace Universidade.Arquivo
             DaoProfessor daoProfessor = new DaoProfessor();
             string jsonFilePath = @".\listaProfessor.txt";
 
-            if (File.Exists(jsonFilePath)) { 
+            if (File.Exists(jsonFilePath))
+            {
                 string json = File.ReadAllText(jsonFilePath);
 
                 Professores[] listaProfessor = JsonConvert.DeserializeObject<Professores[]>(json);
-              
+
                 daoProfessor.addProfessorLer(listaProfessor.ToList());
 
             }
@@ -130,12 +131,35 @@ namespace Universidade.Arquivo
             {
                 string json = File.ReadAllText(jsonFilePath);
 
-                Funcionario[] listaFuncionario= JsonConvert.DeserializeObject<Funcionario[]>(json);
+                Funcionario[] listaFuncionario = JsonConvert.DeserializeObject<Funcionario[]>(json);
 
                 daoFuncionario.lerFuncionarios(listaFuncionario.ToList());
             }
         }
 
+        // Alunos
 
+        public void SalvarAluno(List<Alunos> listaAluno)
+        {
+            string json = JsonConvert.SerializeObject(listaAluno.ToArray());
+
+            File.WriteAllText(@".\listaAlunos.txt", json);
+        }
+
+        public void lerAluno()
+        {
+            DaoAluno daoAluno = new DaoAluno();
+            string jsonFilePath = @".\listaAlunos.txt";
+
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+
+                Alunos[] listaAluno = JsonConvert.DeserializeObject<Alunos[]>(json);
+
+                daoAluno.addAlunoLer(listaAluno.ToList());
+
+            }
+        }
     }
 }

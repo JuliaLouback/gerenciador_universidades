@@ -65,7 +65,6 @@ namespace Universidade.View
             maskTelefone.Text    = item.Telefone.TelefoneFixo;
             cbxCargo.Text        = item.Cargo;
             cbxSetor.Text        = item.Setor;
-            nudCargaHoraria.Text = item.Setor;
         }
 
         private void btnCadastrarUsuario_Click(object sender, EventArgs e)
@@ -98,7 +97,7 @@ namespace Universidade.View
             funcionario.Telefone = telefone;
             funcionario.Setor = cbxSetor.Text;
             funcionario.Cargo = cbxCargo.Text;
-            funcionario.CargaHoraria = Convert.ToInt32(nudCargaHoraria.Value);
+
 
 
 

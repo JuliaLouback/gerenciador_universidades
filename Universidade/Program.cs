@@ -23,7 +23,7 @@ namespace Universidade
             arquivo.lerSetores();
             arquivo.lerCurso();
             arquivo.lerFuncionario();
-            
+            arquivo.lerAluno();
             
             Application.Run(new Form1());
         }
