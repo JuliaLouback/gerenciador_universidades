@@ -10,22 +10,22 @@ namespace Universidade.DAO
 {
     class DaoAluno
     {
-        private static List<Alunos> listaAluno = new List<Alunos>();
+        private static List<Aluno> listaAluno = new List<Aluno>();
         Arquivos arquivo = new Arquivos();
 
-        public void addAluno(Alunos aluno)
+        public void addAluno(Aluno aluno)
         {
             listaAluno.Add(aluno);
             arquivo.SalvarAluno(listaAluno);
         }
 
-        public void addAlunoLer(List<Alunos> aluno)
+        public void addAlunoLer(List<Aluno> aluno)
         {
             listaAluno = aluno;
             arquivo.SalvarAluno(listaAluno);
         }
 
-        public List<Alunos> listarAluno()
+        public List<Aluno> listarAluno()
         {
             return listaAluno;
         }
@@ -36,15 +36,15 @@ namespace Universidade.DAO
             arquivo.SalvarAluno(listaAluno);
         }
 
-        public Alunos procurarAluno(int item)
+        public Aluno procurarAluno(int item)
         {
-            Alunos aluno = listaAluno.Find(x => x.NR == item);
+            Aluno aluno = listaAluno.Find(x => x.NR == item);
             return aluno;
         }
 
-        public Alunos procurarAlunoNome(string item)
+        public Aluno procurarAlunoNome(string item)
         {
-            Alunos aluno = listaAluno.Find(x => x.Nome == item);
+            Aluno aluno = listaAluno.Find(x => x.Nome == item);
             return aluno;
         }
     }

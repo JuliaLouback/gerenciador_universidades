@@ -67,7 +67,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtCurso = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNR)).BeginInit();
@@ -165,6 +165,7 @@
             this.btnVoltar.TabIndex = 163;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
             // 
             // txtNR
             // 
@@ -470,14 +471,14 @@
             this.txtNome.Size = new System.Drawing.Size(179, 24);
             this.txtNome.TabIndex = 134;
             // 
-            // comboBox1
+            // txtCurso
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(443, 385);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(347, 26);
-            this.comboBox1.TabIndex = 172;
+            this.txtCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtCurso.FormattingEnabled = true;
+            this.txtCurso.Location = new System.Drawing.Point(443, 385);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.Size = new System.Drawing.Size(347, 26);
+            this.txtCurso.TabIndex = 172;
             // 
             // label17
             // 
@@ -496,7 +497,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 720);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtCurso);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -586,7 +587,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox txtCurso;
         private System.Windows.Forms.Label label17;
     }
 }

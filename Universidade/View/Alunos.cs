@@ -12,9 +12,11 @@ using Universidade.Entidades;
 
 namespace Universidade.View
 {
-    public partial class Aluno : Form
+    public partial class Alunos : Form
     {
-        public Aluno()
+        ControleClass controle = new ControleClass();
+
+        public Alunos()
         {
             InitializeComponent();
             Preencher();
@@ -51,10 +53,10 @@ namespace Universidade.View
         public void Preencher()
         {
 
-            List<Alunos> lstUsr = new ControleClass().listarAluno();
+            List<Entidades.Aluno> lstUsr = new ControleClass().listarAluno();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
-                Código = usuario.NR,
+                NR = usuario.NR,
                 Nome = usuario.Nome,
                 CPF = usuario.CPF,
                 Email = usuario.Email,
@@ -89,6 +91,20 @@ namespace Universidade.View
             CadastroAluno curso = new CadastroAluno(0);
             Hide();
             curso.Show();
+        }
+
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            TelaUsuarios telaUsuario = new TelaUsuarios();
+            Hide();
+            telaUsuario.Show();
+        }
+
+        private void CadastrarAluno_Click(object sender, EventArgs e)
+        {
+            CadastroAluno cadastroAluno = new CadastroAluno(0);
+            Hide();
+            cadastroAluno.Show();
         }
     }
 }

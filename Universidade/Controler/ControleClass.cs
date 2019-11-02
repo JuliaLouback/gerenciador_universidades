@@ -47,7 +47,7 @@ namespace Universidade.Controler
             daoFuncionario.addFuncionario(funcionario);
         }
 
-        public void adicionarAluno(Alunos aluno)
+        public void adicionarAluno(Aluno aluno)
         {
             daoAluno.addAluno(aluno);
         }
@@ -152,6 +152,18 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        public Aluno procurarAluno(int codigo)
+        {
+            var pesquisa = new DaoAluno().procurarAluno(codigo);
+            return pesquisa; 
+        }
+
+        public Aluno procurarAlunoNome(string codigo)
+        {
+            var pesquisa = new DaoAluno().procurarAlunoNome(codigo);
+            return pesquisa;
+        }
+
         // LISTAR
 
         public List<Professores> listarProfessor()
@@ -184,7 +196,7 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
-        public List<Alunos> listarAluno()
+        public List<Aluno> listarAluno()
         {
             var pesquisa = new DaoAluno().listarAluno();
             return pesquisa;

@@ -139,7 +139,7 @@ namespace Universidade.Arquivo
 
         // Alunos
 
-        public void SalvarAluno(List<Alunos> listaAluno)
+        public void SalvarAluno(List<Aluno> listaAluno)
         {
             string json = JsonConvert.SerializeObject(listaAluno.ToArray());
 
@@ -155,7 +155,7 @@ namespace Universidade.Arquivo
             {
                 string json = File.ReadAllText(jsonFilePath);
 
-                Alunos[] listaAluno = JsonConvert.DeserializeObject<Alunos[]>(json);
+                Aluno[] listaAluno = JsonConvert.DeserializeObject<Aluno[]>(json);
 
                 daoAluno.addAlunoLer(listaAluno.ToList());
 

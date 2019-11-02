@@ -65,7 +65,7 @@ namespace Universidade.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Aluno aluno = new Aluno();
+            Alunos aluno = new Alunos();
             Hide();
             aluno.Show();
         }
