@@ -8,6 +8,6 @@ namespace Universidade.Entidades
 {
     class Aluno : Pessoa
     {
-        public string Curso { get; set; }
+        public int Curso_id { get; set; }
     }
 }

@@ -52,12 +52,14 @@
     <Compile Include="Arquivo\Arquivos.cs" />
     <Compile Include="Controler\ControleClass.cs" />
     <Compile Include="DAO\DaoAluno.cs" />
+    <Compile Include="DAO\DaoCargo.cs" />
     <Compile Include="DAO\DaoCoodenador.cs" />
     <Compile Include="DAO\DaoCurso.cs" />
     <Compile Include="DAO\DaoFuncionario.cs" />
     <Compile Include="DAO\DaoProfessor.cs" />
     <Compile Include="DAO\DaoSetor.cs" />
     <Compile Include="Entidades\Aluno.cs" />
+    <Compile Include="Entidades\Cargo.cs" />
     <Compile Include="Entidades\Coordenador.cs" />
     <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
@@ -75,6 +77,12 @@
     </Compile>
     <Compile Include="View\CadastroAluno.Designer.cs">
       <DependentUpon>CadastroAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroCargo.Designer.cs">
+      <DependentUpon>CadastroCargo.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CadastroFuncionario.cs">
       <SubType>Form</SubType>
@@ -107,6 +115,12 @@
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Endereco.cs" />
+    <Compile Include="View\Cargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cargos.Designer.cs">
+      <DependentUpon>Cargos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Coordenadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +167,12 @@
     <Compile Include="View\Setores.Designer.cs">
       <DependentUpon>Setores.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TelaSetores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TelaSetores.Designer.cs">
+      <DependentUpon>TelaSetores.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TelaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroAluno.resx">
       <DependentUpon>CadastroAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroCargo.resx">
+      <DependentUpon>CadastroCargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
@@ -179,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cargos.resx">
+      <DependentUpon>Cargos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Coordenadores.resx">
       <DependentUpon>Coordenadores.cs</DependentUpon>
@@ -209,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Setores.resx">
       <DependentUpon>Setores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TelaSetores.resx">
+      <DependentUpon>TelaSetores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TelaUsuarios.resx">
       <DependentUpon>TelaUsuarios.cs</DependentUpon>

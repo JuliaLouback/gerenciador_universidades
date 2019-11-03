@@ -67,10 +67,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.nudIdade = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cbxSetor = new System.Windows.Forms.ComboBox();
-            this.cbxCargo = new System.Windows.Forms.ComboBox();
+            this.txtCargo = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtSetor = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).BeginInit();
@@ -161,7 +161,7 @@
             this.btnVoltar.BackColor = System.Drawing.Color.DarkCyan;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(543, 694);
+            this.btnVoltar.Location = new System.Drawing.Point(495, 590);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(128, 43);
             this.btnVoltar.TabIndex = 163;
@@ -234,7 +234,7 @@
             this.btnCadastrarUsuario.BackColor = System.Drawing.Color.ForestGreen;
             this.btnCadastrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarUsuario.Location = new System.Drawing.Point(715, 694);
+            this.btnCadastrarUsuario.Location = new System.Drawing.Point(667, 590);
             this.btnCadastrarUsuario.Name = "btnCadastrarUsuario";
             this.btnCadastrarUsuario.Size = new System.Drawing.Size(128, 43);
             this.btnCadastrarUsuario.TabIndex = 156;
@@ -473,54 +473,58 @@
             this.nudIdade.Size = new System.Drawing.Size(141, 26);
             this.nudIdade.TabIndex = 172;
             // 
-            // label17
+            // txtCargo
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(75, 579);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 25);
-            this.label17.TabIndex = 173;
-            this.label17.Text = "Setor";
+            this.txtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCargo.FormattingEnabled = true;
+            this.txtCargo.Location = new System.Drawing.Point(446, 344);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(179, 26);
+            this.txtCargo.TabIndex = 179;
             // 
-            // label20
+            // label22
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.DimGray;
-            this.label20.Location = new System.Drawing.Point(278, 579);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 25);
-            this.label20.TabIndex = 174;
-            this.label20.Text = "Cargo";
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.DimGray;
+            this.label22.Location = new System.Drawing.Point(441, 316);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(70, 25);
+            this.label22.TabIndex = 178;
+            this.label22.Text = "Cargo";
             // 
-            // cbxSetor
+            // txtSetor
             // 
-            this.cbxSetor.FormattingEnabled = true;
-            this.cbxSetor.Location = new System.Drawing.Point(80, 608);
-            this.cbxSetor.Name = "cbxSetor";
-            this.cbxSetor.Size = new System.Drawing.Size(179, 21);
-            this.cbxSetor.TabIndex = 176;
+            this.txtSetor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSetor.FormattingEnabled = true;
+            this.txtSetor.Location = new System.Drawing.Point(280, 344);
+            this.txtSetor.Name = "txtSetor";
+            this.txtSetor.Size = new System.Drawing.Size(143, 26);
+            this.txtSetor.TabIndex = 181;
+            this.txtSetor.SelectionChangeCommitted += new System.EventHandler(this.TxtSetor_SelectionChangeCommitted);
+            this.txtSetor.SelectedValueChanged += new System.EventHandler(this.TxtSetor_SelectedValueChanged);
             // 
-            // cbxCargo
+            // label23
             // 
-            this.cbxCargo.FormattingEnabled = true;
-            this.cbxCargo.Location = new System.Drawing.Point(283, 607);
-            this.cbxCargo.Name = "cbxCargo";
-            this.cbxCargo.Size = new System.Drawing.Size(140, 21);
-            this.cbxCargo.TabIndex = 177;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.DimGray;
+            this.label23.Location = new System.Drawing.Point(275, 316);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(63, 25);
+            this.label23.TabIndex = 180;
+            this.label23.Text = "Setor";
             // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(885, 749);
-            this.Controls.Add(this.cbxCargo);
-            this.Controls.Add(this.cbxSetor);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label17);
+            this.ClientSize = new System.Drawing.Size(885, 655);
+            this.Controls.Add(this.txtSetor);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.txtCargo);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.nudIdade);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -559,8 +563,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNome);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroFuncionario";
-            this.Text = "CadastrarFuncionario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sistema de Gerenciamento de Universidades";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).EndInit();
@@ -610,9 +616,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.NumericUpDown nudIdade;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox cbxSetor;
-        private System.Windows.Forms.ComboBox cbxCargo;
+        private System.Windows.Forms.ComboBox txtCargo;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox txtSetor;
+        private System.Windows.Forms.Label label23;
     }
 }

@@ -67,6 +67,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtCurso = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
@@ -469,11 +471,33 @@
             this.pictureBox1.TabIndex = 131;
             this.pictureBox1.TabStop = false;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.DimGray;
+            this.label17.Location = new System.Drawing.Point(278, 342);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 25);
+            this.label17.TabIndex = 135;
+            this.label17.Text = "Curso";
+            // 
+            // txtCurso
+            // 
+            this.txtCurso.Enabled = false;
+            this.txtCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurso.Location = new System.Drawing.Point(279, 388);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.Size = new System.Drawing.Size(337, 24);
+            this.txtCurso.TabIndex = 134;
+            // 
             // CadastroCoordenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 749);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.txtCurso);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -565,5 +589,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtCurso;
     }
 }

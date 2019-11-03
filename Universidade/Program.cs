@@ -24,6 +24,7 @@ namespace Universidade
             arquivo.lerCurso();
             arquivo.lerFuncionario();
             arquivo.lerAluno();
+            arquivo.lerCargo();
             
             Application.Run(new Form1());
         }

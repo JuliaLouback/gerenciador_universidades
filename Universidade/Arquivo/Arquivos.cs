@@ -161,5 +161,30 @@ namespace Universidade.Arquivo
 
             }
         }
+
+        // Cargo 
+
+        public void SalvarCargo(List<Cargo> listaCargo)
+        {
+            string json = JsonConvert.SerializeObject(listaCargo.ToArray());
+
+            File.WriteAllText(@".\listaCargos.txt", json);
+        }
+
+        public void lerCargo()
+        {
+            DaoCargo daoCargo = new DaoCargo();
+            string jsonFilePath = @".\listaCargos.txt";
+
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+
+                Cargo[] listaCargo = JsonConvert.DeserializeObject<Cargo[]>(json);
+
+                daoCargo.addCargoLer(listaCargo.ToList());
+
+            }
+        }
     }
 }

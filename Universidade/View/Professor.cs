@@ -16,7 +16,7 @@ namespace Universidade.View
 {
     public partial class Professor : Form
     {
-        private static DaoProfessor dao = new DaoProfessor();
+        ControleClass controle = new ControleClass();
      
         public Professor()
         {
@@ -64,15 +64,15 @@ namespace Universidade.View
         public void Preencher()
         {
 
-            List<Professores > lstUsr = new ControleClass().listarProfessor();
+            List<Professores > lstUsr = controle.listarProfessor();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
                 NR = usuario.NR,
                 Nome = usuario.Nome,
                 CPF = usuario.CPF,
                 Email = usuario.Email,
-                Curso = usuario.Curso,
-                Matérias = usuario.Materia
+                Curso = controle.procurarCursoNomes(usuario.Curso_id),
+                Matérias = controle.procurarMateriasNomes(usuario.Curso_id, usuario.Materia_id)
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
@@ -85,7 +85,7 @@ namespace Universidade.View
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                new ControleClass().excluirProfessor(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                controle.excluirProfessor(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
                 MessageBox.Show("Usuário Excluído com sucesso!","Usuário Excluído",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 Preencher();
             } else if (e.ColumnIndex == tabela.Columns["Editar"].Index)

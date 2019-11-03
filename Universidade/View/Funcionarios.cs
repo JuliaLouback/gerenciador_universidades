@@ -14,6 +14,8 @@ namespace Universidade.View
 {
     public partial class Funcionarios : Form
     {
+        ControleClass controle = new ControleClass();
+
         public Funcionarios()
         {
             InitializeComponent();
@@ -63,8 +65,8 @@ namespace Universidade.View
             {
                 NR = funcionario.NR,
                 Nome = funcionario.Nome,
-                Setor = funcionario.Setor,
-                Cargo = funcionario.Cargo,
+                Setor = controle.procurarSetorNomes(funcionario.Setor_id),
+                Cargo = controle.procurarCargoNomes(funcionario.Cargo_id)
             }).ToList();
 
             tabela.DataSource = novaListFuncionario;

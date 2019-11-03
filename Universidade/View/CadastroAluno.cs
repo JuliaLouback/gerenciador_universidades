@@ -58,7 +58,10 @@ namespace Universidade.View
             txtCpf.Text = item.CPF;
             txtNR.Value = item.NR;
             txtEmail.Text = item.Email;
-            txtCurso.Text = item.Curso;
+
+            var pesquisa = cadAluno.procurarCurso(item.Curso_id);
+            txtCurso.Text = pesquisa.Nome;
+
             txtNumero.Value = item.Endereco.Numero;
             txtRua.Text = item.Endereco.Rua;
             txtCep.Text = item.Endereco.Cep;
@@ -84,7 +87,9 @@ namespace Universidade.View
             aluno.CPF = txtCpf.Text;
             aluno.NR = Convert.ToInt32(txtNR.Text);
             aluno.Email = txtEmail.Text;
-            aluno.Curso = txtCurso.Text;
+
+            var pesquisaCurso = cadAluno.procurarCursoNome(txtCurso.Text);
+            aluno.Curso_id = pesquisaCurso.Codigo;
 
             endereco.Cep = txtCep.Text;
             endereco.Numero = Convert.ToInt32(txtNumero.Value);
@@ -99,41 +104,21 @@ namespace Universidade.View
 
             aluno.Endereco = endereco;
             aluno.Telefone = telefone;
-            aluno.Curso = txtCurso.Text;
-            new ControleClass().adicionarAluno(aluno);
+
+            var pesquisaCursinho = cadAluno.procurarCursoNome(txtCurso.Text);
+            aluno.Curso_id = pesquisaCursinho.Codigo;
 
             if (verificar == 0)
             {
                 new ControleClass().adicionarAluno(aluno);
-                Alunos alunos = new Alunos();
+               
                 MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Hide();
-                alunos.Show();
             }
             else
             {
-                var pesquisa = new ControleClass().procurarAluno(verificar);
-                if (pesquisa != null)
-                {
-                    pesquisa.Nome = txtNome.Text;
-                    pesquisa.Idade = Convert.ToInt32(txtIdade.Value);
-                    pesquisa.Sexo = txtSexo.Text;
-                    pesquisa.EstadoCivil = txtEstadoCivil.Text;
-                    pesquisa.CPF = txtCpf.Text;
-                    pesquisa.NR = Convert.ToInt32(txtNR.Text);
-                    pesquisa.Email = txtEmail.Text;
-                    pesquisa.Curso = txtCurso.Text;
-
-
-                    pesquisa.Endereco = endereco;
-                    pesquisa.Telefone = telefone;
-
-                    new ControleClass().excluirAluno(verificar);
-                    new ControleClass().adicionarAluno(pesquisa);
-                }
                 new ControleClass().excluirAluno(verificar);
                 new ControleClass().adicionarAluno(aluno);
-
+               
                 MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

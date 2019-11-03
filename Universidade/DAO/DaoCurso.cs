@@ -57,6 +57,20 @@ namespace Universidade.DAO
             return cursoProcurarN;
         }
 
+        public string procurarCursoNomes(int item)
+        {
+
+            var cursoProcurarN = listaCurso.Find(x => x.Codigo == item);
+            if (cursoProcurarN != null)
+            {
+                return cursoProcurarN.Nome;
+            } else
+            {
+                return " ";
+            }
+           
+        }
+
         public List<Materias> procurarMateria(int item, int item2)
         {
             Curso cursoProcurarN = listaCurso.Find(x => x.Codigo == item);
@@ -87,7 +101,27 @@ namespace Universidade.DAO
             return materia;
         }
 
-    
+        public string  procurarMateriasNomes(int item, int item2)
+        {
+            Curso cursoProcurarN = listaCurso.Find(x => x.Codigo == item);
+            var materia  = "";
+
+            if (cursoProcurarN != null) {
+                foreach (Materias cursinho in cursoProcurarN.Materias)
+                {
+                    if (cursinho.Codigo == item2)
+                    {
+                        materia = cursinho.Nome;
+                    }
+                }
+                return materia;
+            } else
+            {
+                return " ";
+            }
+        }
+
+
         public void excluirMateria(int item, int item2)
         {
           listaMateria.RemoveAll(x => x.Codigo == item2);

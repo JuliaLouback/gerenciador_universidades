@@ -149,3 +149,10 @@ C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universid
 C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.exe
 C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.pdb
 C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csprojAssemblyReference.cache
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Alunos.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroAluno.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroFuncionario.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Funcionarios.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Cargos.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.TelaSetores.resources
+C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroCargo.resources

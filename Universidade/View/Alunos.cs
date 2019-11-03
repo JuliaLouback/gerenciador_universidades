@@ -19,6 +19,15 @@ namespace Universidade.View
         public Alunos()
         {
             InitializeComponent();
+
+            cadastrarFuncionario.FlatStyle = FlatStyle.Flat;
+            cadastrarFuncionario.FlatAppearance.BorderColor = Color.ForestGreen;
+            cadastrarFuncionario.FlatAppearance.BorderSize = 1;
+
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnVoltar.FlatAppearance.BorderSize = 1;
+
             Preencher();
 
             DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
@@ -53,15 +62,14 @@ namespace Universidade.View
         public void Preencher()
         {
 
-            List<Entidades.Aluno> lstUsr = new ControleClass().listarAluno();
+            List<Aluno> lstUsr = controle.listarAluno();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
                 NR = usuario.NR,
                 Nome = usuario.Nome,
                 CPF = usuario.CPF,
                 Email = usuario.Email,
-                Curso = usuario.Curso,
-
+                Curso = controle.procurarCursoNomes(usuario.Curso_id)
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
@@ -74,7 +82,7 @@ namespace Universidade.View
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                new ControleClass().excluirAluno(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                controle.excluirAluno(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
                 MessageBox.Show("Usuário Excluído com sucesso!", "Usuário Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Preencher();
             }

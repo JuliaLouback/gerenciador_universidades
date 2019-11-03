@@ -16,6 +16,7 @@ namespace Universidade.Controler
         private DaoSetor daoSetor = new DaoSetor();
         private DaoCurso daoCurso = new DaoCurso();
         private DaoAluno daoAluno = new DaoAluno();
+        private DaoCargo daoCargo = new DaoCargo();
 
         // ADICIONAR 
         public void adicionarProfessor(Professores professor)
@@ -35,7 +36,7 @@ namespace Universidade.Controler
 
         public void adicionarSetores(int verificar)
         {
-            new DaoSetor().excluirSetor(verificar);
+            daoSetor.excluirSetor(verificar);
         }
 
         public void adicionarCurso(Curso curso)
@@ -52,153 +53,262 @@ namespace Universidade.Controler
             daoAluno.addAluno(aluno);
         }
 
+        public void adicionarCargo(Cargo cargo)
+        {
+            daoCargo.addCargo(cargo);
+        }
+
         // EXCLUIR
         public void excluirProfessor(int verificar)
         {
-            new DaoProfessor().excluirProfessor(verificar);
+            daoProfessor.excluirProfessor(verificar);
         }
 
         public void excluirCoordenador(int verificar)
         {
-            new DaoCoodenador().excluirCoordenador(verificar);
+            daoCoordenador.excluirCoordenador(verificar);
         }
 
         public void excluirSetor(int verificar)
         {
-            new DaoSetor().excluirSetor(verificar);
+            daoSetor.excluirSetor(verificar);
         }
 
         public void excluirCurso(int verificar)
         {
-            new DaoCurso().excluirCurso(verificar);
+            daoCurso.excluirCurso(verificar);
         }
 
         public void excluirMateria(int codigo, int codigo2)
         {
-            new DaoCurso().excluirMateria(codigo, codigo2);
+            daoCurso.excluirMateria(codigo, codigo2);
         }
 
         public void excluirFuncionario(int verificar)
         {
-            new DaoFuncionario().excluirFuncionario(verificar);
+            daoFuncionario.excluirFuncionario(verificar);
         }
 
         public void excluirAluno(int codigo)
         {
-            new DaoAluno().excluirAluno(codigo);
+           daoAluno.excluirAluno(codigo);
+        }
+
+        public void excluirCargo(int codigo)
+        {
+            daoCargo.excluirCargo(codigo);
         }
 
         // PROCURAR
 
         public Coordenador procurarCoordenador(int NR)
         {
-            var pesquisa = new DaoCoodenador().procurarCoordenador(NR);
+            var pesquisa = daoCoordenador.procurarCoordenador(NR);
             return pesquisa;
         }
 
         public Coordenador procurarCoordenadorNome(string Nome)
         {
-            var pesquisa = new DaoCoodenador().procurarCoordenadorNome(Nome);
+            var pesquisa = daoCoordenador.procurarCoordenadorNome(Nome);
             return pesquisa;
         }
 
         public Setor procurarSetor(int codigo)
         {
-            var pesquisa = new DaoSetor().procurarSetor(codigo);
+            var pesquisa = daoSetor.procurarSetor(codigo);
             return pesquisa;
         }
 
         public Professores procurarProfessor(int codigo)
         {
-            var pesquisa = new DaoProfessor().procurarProfessor(codigo);
+            var pesquisa = daoProfessor.procurarProfessor(codigo);
             return pesquisa;
         }
 
         public Professores procurarProfessorNome(string codigo)
         {
-            var pesquisa = new DaoProfessor().procurarProfessorNome(codigo);
+            var pesquisa = daoProfessor.procurarProfessorNome(codigo);
             return pesquisa;
         }
 
         public List<Materias> procurarMateria(int verificar, int v)
         {
             List<Materias> listinha = new List<Materias>();
-            listinha = new DaoCurso().procurarMateria(verificar, v);
+            listinha = daoCurso.procurarMateria(verificar, v);
             return listinha;
         }
 
         public Materias procurarMateriaNome(int codigo, string item)
         {
-            var pesquisa = new DaoCurso().procurarMateriaNome(codigo, item);
+            var pesquisa = daoCurso.procurarMateriaNome(codigo, item);
             return pesquisa;
         }
 
 
         public Curso procurarCurso(int codigo)
         {
-            var pesquisa = new DaoCurso().procurarCurso(codigo);
+            var pesquisa = daoCurso.procurarCurso(codigo);
             return pesquisa;
         }
 
         public Funcionario procurarFuncionario(int codigo)
         {
-            var pesquisa = new DaoFuncionario().procurarFuncionario(codigo);
+            var pesquisa = daoFuncionario.procurarFuncionario(codigo);
             return pesquisa;
         }
 
         public Funcionario procurarFuncionarioNome(string codigo)
         {
-            var pesquisa = new DaoFuncionario().procurarFuncionarioNome(codigo);
+            var pesquisa = daoFuncionario.procurarFuncionarioNome(codigo);
             return pesquisa;
         }
 
         public Aluno procurarAluno(int codigo)
         {
-            var pesquisa = new DaoAluno().procurarAluno(codigo);
+            var pesquisa = daoAluno.procurarAluno(codigo);
             return pesquisa; 
         }
 
+
         public Aluno procurarAlunoNome(string codigo)
         {
-            var pesquisa = new DaoAluno().procurarAlunoNome(codigo);
+            var pesquisa = daoAluno.procurarAlunoNome(codigo);
             return pesquisa;
         }
+
+        public Curso procurarCursoNome(string codigo)
+        {
+            var pesquisa = daoCurso.procurarCursoNome(codigo);
+            return pesquisa;
+        }
+
+        public string procurarCursoNomes(int codigo)
+        {
+            var pesquisa = daoCurso.procurarCursoNomes(codigo);
+            return pesquisa;
+        }
+
+
+        public Setor procurarSetorNome(string codigo)
+        {
+            var pesquisa = daoSetor.procurarSetorNome(codigo);
+            return pesquisa;
+        }
+
+        public string procurarSetorNomes(int codigo)
+        {
+            var pesquisa = daoSetor.procurarSetorNomes(codigo);
+            return pesquisa;
+        }
+
+        public string procurarMateriasNomes(int codigo, int codigo2)
+        {
+            var pesquisa = daoCurso.procurarMateriasNomes(codigo, codigo2);
+            return pesquisa;
+        }
+
+        public Cargo procurarCargo(int codigo)
+        {
+            var pesquisa = daoCargo.procurarCargo(codigo);
+            return pesquisa;
+        }
+
+        public Cargo procurarCargoNome(int item, string codigo)
+        {
+            var pesquisa = daoCargo.procurarCargoNome(item, codigo);
+            return pesquisa;
+        }
+
+        public string procurarCargoNomes(int item)
+        {
+            var pesquisa = daoCargo.procurarCargoNomes(item);
+            return pesquisa;
+        }
+
 
         // LISTAR
 
         public List<Professores> listarProfessor()
         {
-            var pesquisa = new DaoProfessor().listarProfessor();
+            var pesquisa = daoProfessor.listarProfessor();
             return pesquisa;
         }
 
         public List<Coordenador> listarCoordenador()
         {
-            var pesquisa = new DaoCoodenador().listarCoordenador();
+            var pesquisa = daoCoordenador.listarCoordenador();
+            return pesquisa;
+        }
+
+        public List<Coordenador> listarCoordenadorCodigo(int item)
+        {
+            var pesquisa = daoCoordenador.listarCoordenadorCodigo(item);
+            return pesquisa;
+        }
+
+        public List<Coordenador> listarCoordenadorNome(string item)
+        {
+            var pesquisa = daoCoordenador.listarCoordenadorNome(item);
             return pesquisa;
         }
 
         public List<Setor> listarSetor()
         {
-            var pesquisa = new DaoSetor().listarSetor();
+            var pesquisa = daoSetor.listarSetor();
+            return pesquisa;
+        }
+
+        public List<Setor> listarSetorCodigo(int item)
+        {
+            var pesquisa = daoSetor.listarSetorCodigo(item);
+            return pesquisa;
+        }
+
+        public List<Setor> listarSetorNome(string item)
+        {
+            var pesquisa = daoSetor.listarSetorNome(item);
             return pesquisa;
         }
 
         public List<Curso> listarCurso()
         {
-            var pesquisa = new DaoCurso().listarCurso();
+            var pesquisa = daoCurso.listarCurso();
             return pesquisa;
         }
 
         public List<Funcionario> listarFuncionario()
         {
-            var pesquisa = new DaoFuncionario().listarFuncionarios();
+            var pesquisa = daoFuncionario.listarFuncionarios();
             return pesquisa;
         }
 
         public List<Aluno> listarAluno()
         {
-            var pesquisa = new DaoAluno().listarAluno();
+            var pesquisa = daoAluno.listarAluno();
+            return pesquisa;
+        }
+
+        public List<Cargo> listarCargo()
+        {
+            var pesquisa = daoCargo.listarCargo();
+            return pesquisa;
+        }
+
+        public List<Cargo> listarCargoCodigo(int item)
+        {
+            var pesquisa = daoCargo.listarCargoCodigo(item);
+            return pesquisa;
+        }
+
+        public List<Cargo> listarCargoSetor(string item)
+        {
+            var pesquisa = daoCargo.listarCargoSetor(item);
+            return pesquisa;
+        }
+
+        public List<Cargo> procurarCargoLista(int codigo)
+        {
+            var pesquisa = daoCargo.procurarCargoLista(codigo);
             return pesquisa;
         }
     }

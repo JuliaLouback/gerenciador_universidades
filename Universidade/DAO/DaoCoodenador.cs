@@ -30,6 +30,18 @@ namespace Universidade.DAO
             return listaCoordenador;
         }
 
+        public List<Coordenador> listarCoordenadorCodigo(int codigo)
+        {
+            List<Coordenador> listinha = listaCoordenador.FindAll(x => x.NR == codigo);
+            return listinha;
+        }
+
+        public List<Coordenador> listarCoordenadorNome(string codigo)
+        {
+            List<Coordenador> listinha = listaCoordenador.FindAll(x => x.Nome == codigo);
+            return listinha;
+        }
+
         public void excluirCoordenador(int item)
         {
             listaCoordenador.RemoveAll(x => x.NR == item);

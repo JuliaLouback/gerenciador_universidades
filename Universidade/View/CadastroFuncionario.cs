@@ -16,18 +16,32 @@ namespace Universidade.View
     public partial class CadastroFuncionario : Form
     {
         public int verificar = 0;
+        public int setor_id = 0;
+
         ControleClass controleClasse = new ControleClass();
 
 
         public CadastroFuncionario(int NR)
         {
             InitializeComponent();
+            txtCargo.Items.Clear();
+            txtSetor.Items.Clear();
+
+            btnCadastrarUsuario.FlatStyle = FlatStyle.Flat;
+            btnCadastrarUsuario.FlatAppearance.BorderColor = Color.ForestGreen;
+            btnCadastrarUsuario.FlatAppearance.BorderSize = 1;
+
+            btnVoltar.FlatStyle = FlatStyle.Flat;
+            btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnVoltar.FlatAppearance.BorderSize = 1;
+
+
 
             if (NR != 0)
             {
                 verificar = NR;
                 btnCadastrarUsuario.Text = "Editar";
-                label3.Text = "Edição de Funcionario";
+                label3.Text = "Edição de Funcionário";
                 var pesquisa = controleClasse.procurarFuncionario(NR);
                 PreencherCampos(pesquisa);
 
@@ -41,9 +55,11 @@ namespace Universidade.View
             var listaSetor = controleClasse.listarSetor();
             foreach (Setor setor in listaSetor)
             {
-                cbxSetor.Items.Add(setor.Tipo);
+                txtSetor.Items.Add(setor.Tipo);
             }
         }
+
+
 
         private void PreencherCampos(Funcionario item)
         {
@@ -63,8 +79,13 @@ namespace Universidade.View
             txtCidade.Text       = item.Endereco.Cidade;
             maskCelular.Text     = item.Telefone.TelefoneCelular;
             maskTelefone.Text    = item.Telefone.TelefoneFixo;
-            cbxCargo.Text        = item.Cargo;
-            cbxSetor.Text        = item.Setor;
+
+            var procurarSetor    = controleClasse.procurarSetor(item.Setor_id);
+            txtSetor.Text        = procurarSetor.Tipo;
+
+            var procurarCargo    = controleClasse.procurarCargo(item.Cargo_id);
+            txtCargo.Text        = procurarCargo.Nome;
+
         }
 
         private void btnCadastrarUsuario_Click(object sender, EventArgs e)
@@ -95,19 +116,16 @@ namespace Universidade.View
 
             funcionario.Endereco = endereco;
             funcionario.Telefone = telefone;
-            funcionario.Setor = cbxSetor.Text;
-            funcionario.Cargo = cbxCargo.Text;
+            funcionario.Setor_id = setor_id;
 
-
-
+            var pesquisaCargo = controleClasse.procurarCargoNome(setor_id, txtCargo.Text);
+           
+            funcionario.Cargo_id = pesquisaCargo.Codigo;
 
             if (verificar == 0)
             {
                 new ControleClass().adicionarFuncionario(funcionario);
-                Funcionarios funcionarios = new Funcionarios();
-                MessageBox.Show("seu cadastro foi realizado com sucesso");
-                Hide();
-                funcionarios.Show();
+                MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -143,6 +161,25 @@ namespace Universidade.View
             Funcionarios funcionarios = new Funcionarios();
             Hide();
             funcionarios.Show();
+        }
+
+        private void TxtSetor_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtSetor_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtCargo.Items.Clear();
+            var pesquisa = controleClasse.procurarSetorNome(txtSetor.Text);
+            setor_id = pesquisa.Codigo;
+
+            List<Cargo> listinha = controleClasse.procurarCargoLista(pesquisa.Codigo);
+
+            foreach (Cargo carginho in listinha)
+            {
+                txtCargo.Items.Add(carginho.Nome);
+            }
         }
     }
 }

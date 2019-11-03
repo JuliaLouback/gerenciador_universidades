@@ -9,8 +9,8 @@ namespace Universidade.Entidades
     class Professores : Pessoa
     { 
 
-        public string Materia { get; set; }
+        public int Materia_id { get; set; }
 
-        public string Curso { get; set; }
+        public int Curso_id { get; set; }
     }
 }

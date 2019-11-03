@@ -8,24 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Universidade.Controler;
-using Universidade.DAO;
 using Universidade.Entidades;
 
 namespace Universidade.View
 {
-    public partial class Coordenadores : Form
+    public partial class Cargos : Form
     {
-
         ControleClass controle = new ControleClass();
 
-        public Coordenadores()
+        public Cargos()
         {
             InitializeComponent();
-            Preencher();
-
-            cadastrarCoordenador.FlatStyle = FlatStyle.Flat;
-            cadastrarCoordenador.FlatAppearance.BorderColor = Color.ForestGreen;
-            cadastrarCoordenador.FlatAppearance.BorderSize = 1;
+            cadastrarSetor.FlatStyle = FlatStyle.Flat;
+            cadastrarSetor.FlatAppearance.BorderColor = Color.ForestGreen;
+            cadastrarSetor.FlatAppearance.BorderSize = 1;
 
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
@@ -35,9 +31,12 @@ namespace Universidade.View
             btnPesquisa.FlatAppearance.BorderColor = Color.DarkCyan;
             btnPesquisa.FlatAppearance.BorderSize = 1;
 
-            btnPesquisaNome.FlatStyle = FlatStyle.Flat;
-            btnPesquisaNome.FlatAppearance.BorderColor = Color.DarkCyan;
-            btnPesquisaNome.FlatAppearance.BorderSize = 1;
+            btnPesquisaSetor.FlatStyle = FlatStyle.Flat;
+            btnPesquisaSetor.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisaSetor.FlatAppearance.BorderSize = 1;
+
+            Preencher();
+            PrencheerCombo();
 
             DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
             editar.Name = "Editar";
@@ -47,7 +46,7 @@ namespace Universidade.View
             editar.UseColumnTextForButtonValue = true;
 
             editar.Text = "Editar";
-            int columnIndex1 = 5;
+            int columnIndex1 = 4;
             if (tabela.Columns["Editar"] == null)
             {
                 tabela.Columns.Insert(columnIndex1, editar);
@@ -61,25 +60,33 @@ namespace Universidade.View
             excluir.UseColumnTextForButtonValue = true;
 
             excluir.Text = "Excluir";
-            int columnIndex = 6;
+            int columnIndex = 5;
             if (tabela.Columns["Excluir"] == null)
             {
                 tabela.Columns.Insert(columnIndex, excluir);
             }
         }
 
+        public void PrencheerCombo()
+        {
+            var listaSetor = controle.listarSetor();
+            foreach (Setor setor in listaSetor)
+            {
+                txtPesquisaSetor.Items.Add(setor.Tipo);
+            }
+        }
 
         public void Preencher()
         {
 
-            List<Coordenador> lstUsr = controle.listarCoordenador();
+            List<Cargo> lstUsr = controle.listarCargo();
             var novaListUsuario = lstUsr.Select(usuario => new
             {
-                NR = usuario.NR,
+                Codigo = usuario.Codigo,
                 Nome = usuario.Nome,
-                CPF = usuario.CPF,
-                Email = usuario.Email,
-                Curso = controle.procurarCursoNomes(usuario.Curso_id)
+                Carga = usuario.Carga_horaria,
+                Setor = controle.procurarSetorNomes(usuario.Setor_id)
+
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
@@ -92,47 +99,42 @@ namespace Universidade.View
         {
             if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
-                controle.excluirCoordenador(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
-                MessageBox.Show("Usuário Excluído com sucesso!", "Usuário Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                controle.excluirCargo(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                MessageBox.Show("Cargo Excluído com sucesso!", "Cargo Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Preencher();
             }
             else if (e.ColumnIndex == tabela.Columns["Editar"].Index)
             {
-                CadastroCoordenador cadastro = new CadastroCoordenador(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+                CadastroCargo cadastroCargo = new CadastroCargo(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
                 Hide();
-                cadastro.Show();
+                cadastroCargo.Show();
             }
         }
 
-        private void Coordenadores_Load(object sender, EventArgs e)
+        private void CadastrarSetor_Click(object sender, EventArgs e)
         {
-
+            CadastroCargo cargo = new CadastroCargo(0);
+            Hide();
+            cargo.Show();
         }
 
-        private void BtnVoltar_Click_1(object sender, EventArgs e)
+        private void BtnVoltar_Click(object sender, EventArgs e)
         {
-            TelaUsuarios telaUsuario = new TelaUsuarios();
+            TelaSetores tela = new TelaSetores();
             Hide();
-            telaUsuario.Show();
-        }
-
-        private void CadastrarCoordenador_Click(object sender, EventArgs e)
-        {
-            CadastroCoordenador cadastro = new CadastroCoordenador(0);
-            Hide();
-            cadastro.Show();
+            tela.Show();
         }
 
         private void BtnPesquisa_Click(object sender, EventArgs e)
         {
-            List<Coordenador> lstUsr = controle.listarCoordenadorCodigo(Convert.ToInt32(txtPesquisaCod.Value));
+            List<Cargo> lstUsr = controle.listarCargoCodigo(Convert.ToInt32(txtPesquisaCod.Value));
             var novaListUsuario = lstUsr.Select(usuario => new
             {
-                NR = usuario.NR,
+                Codigo = usuario.Codigo,
                 Nome = usuario.Nome,
-                CPF = usuario.CPF,
-                Email = usuario.Email,
-                Curso = controle.procurarCursoNomes(usuario.Curso_id)
+                Carga = usuario.Carga_horaria,
+                Setor = controle.procurarSetorNomes(usuario.Setor_id)
+
             }).ToList();
 
             tabela.DataSource = novaListUsuario;
@@ -141,16 +143,16 @@ namespace Universidade.View
             tabela.CellClick += tabela_CellClick;
         }
 
-        private void BtnPesquisaNome_Click(object sender, EventArgs e)
+        private void BtnPesquisaSetor_Click(object sender, EventArgs e)
         {
-            List<Coordenador> lstUsr = controle.listarCoordenadorNome(txtPesquisaNome.Text);
+            List<Cargo> lstUsr = controle.listarCargoSetor(txtPesquisaSetor.Text);
             var novaListUsuario = lstUsr.Select(usuario => new
             {
-                NR = usuario.NR,
+                Codigo = usuario.Codigo,
                 Nome = usuario.Nome,
-                CPF = usuario.CPF,
-                Email = usuario.Email,
-                Curso = controle.procurarCursoNomes(usuario.Curso_id)
+                Carga = usuario.Carga_horaria,
+                Setor = controle.procurarSetorNomes(usuario.Setor_id)
+
             }).ToList();
 
             tabela.DataSource = novaListUsuario;

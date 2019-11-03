@@ -29,6 +29,14 @@ namespace Universidade.View
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
 
+            btnPesquisa.FlatStyle = FlatStyle.Flat;
+            btnPesquisa.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisa.FlatAppearance.BorderSize = 1;
+
+            btnPesquisaNome.FlatStyle = FlatStyle.Flat;
+            btnPesquisaNome.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisaNome.FlatAppearance.BorderSize = 1;
+
             DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
             editar.Name = "Editar";
 
@@ -114,6 +122,40 @@ namespace Universidade.View
             CadastroSetor cadastroSetor = new CadastroSetor(0);
             Hide();
             cadastroSetor.Show();
+        }
+
+        private void BtnPesquisa_Click(object sender, EventArgs e)
+        {
+            List<Setor> lstUsr = new ControleClass().listarSetorCodigo(Convert.ToInt32(txtPesquisaCod.Value));
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                Código = usuario.Codigo,
+                Tipo = usuario.Tipo,
+                Localização = usuario.Localizacao,
+                Responsável = usuario.Responsavel.Nome
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+
+        private void BtnPesquisaNome_Click(object sender, EventArgs e)
+        {
+            List<Setor> lstUsr = new ControleClass().listarSetorNome(txtPesquisaNome.Text);
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                Código = usuario.Codigo,
+                Tipo = usuario.Tipo,
+                Localização = usuario.Localizacao,
+                Responsável = usuario.Responsavel.Nome
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
         }
     }
 }

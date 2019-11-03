@@ -43,7 +43,7 @@ namespace Universidade.View
                 tabela.Columns.Insert(columnIndex1, editar);
             }
 
-            DataGridViewButtonColumn excluir = new DataGridViewButtonColumn();
+            /*DataGridViewButtonColumn excluir = new DataGridViewButtonColumn();
             excluir.Name = "Excluir";
 
             excluir.FlatStyle = FlatStyle.Flat;
@@ -55,7 +55,7 @@ namespace Universidade.View
             if (tabela.Columns["Excluir"] == null)
             {
                 tabela.Columns.Insert(columnIndex, excluir);
-            }
+            }*/
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -91,20 +91,20 @@ namespace Universidade.View
 
         private void tabela_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
+            /*if (e.ColumnIndex == tabela.Columns["Excluir"].Index)
             {
                 controleClasse.excluirCurso(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
 
                 MessageBox.Show("Curso Excluído com sucesso!", "Curso Excluído", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Preencher();
-            }
-            else if (e.ColumnIndex == tabela.Columns["Editar"].Index)
-            {
-                EdicaoCurso cadastroCurso = new EdicaoCurso(Convert.ToInt32(tabela.CurrentRow.Cells[2].Value.ToString()));
+            }*/
+            //else if (e.ColumnIndex == tabela.Columns["Editar"].Index)
+            //{
+                EdicaoCurso cadastroCurso = new EdicaoCurso(Convert.ToInt32(tabela.CurrentRow.Cells[1].Value.ToString()));
                 Hide();
                 cadastroCurso.Show();
-            }
+            //}
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

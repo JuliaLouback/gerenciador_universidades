@@ -18,6 +18,9 @@ namespace Universidade
     public partial class CadastroUsuario : Form
     {
         public int verificar = 0;
+        public int curso_id = 0;
+        public int materia_id = 0;
+
         ControleClass controleClasse = new ControleClass();
      
         public CadastroUsuario(int NR)
@@ -60,8 +63,14 @@ namespace Universidade
             txtCidade.Text      = item.Endereco.Cidade;
             txtTelefoneCelular.Text = item.Telefone.TelefoneCelular;
             txtTelefoneFixo.Text    = item.Telefone.TelefoneFixo;
-            txtCurso.Text           = item.Curso;
-            txtMateria.Text         = item.Materia;
+
+            curso_id            = item.Curso_id;
+            var pesquisaCurso   = controleClasse.procurarCurso(item.Curso_id);
+            txtCurso.Text       = pesquisaCurso.Nome;
+
+            materia_id          = item.Materia_id;
+            var pesquisaMat     = controleClasse.procurarMateriasNomes(item.Curso_id, item.Materia_id);
+            txtMateria.Text     = pesquisaMat;
         }
         private void BtnCadastrarUsuario_Click(object sender, EventArgs e)
         {
@@ -90,8 +99,9 @@ namespace Universidade
 
             professor.Endereco  = endereco;
             professor.Telefone  = telefone;
-            professor.Materia   = txtMateria.Text;
-            professor.Curso     = txtCurso.Text;
+
+            professor.Materia_id    = materia_id;
+            professor.Curso_id      = curso_id;
          
 
             if (verificar == 0)

@@ -74,8 +74,8 @@ namespace Universidade.View
             materia.Periodo         = Convert.ToInt32(txtPeriodo.Text);
 
             var pesquisa            = new DaoProfessor().procurarProfessorNome(txtProfessor.Text);
-            pesquisa.Curso          = txtNome.Text;
-            pesquisa.Materia        = txtNomeM.Text;
+            pesquisa.Curso_id       = Convert.ToInt32(txtCodigo.Value);
+            pesquisa.Materia_id     = Convert.ToInt32(txtCod.Value);
 
             materia.Professor_id    = pesquisa.NR;
            
@@ -119,10 +119,10 @@ namespace Universidade.View
             curso.Nome                  = txtNome.Text;
             curso.QuantidadePeriodo     = Convert.ToInt32(txtQuantidadePeriodo.Text);
 
-            var pesquisaCood = controles.procurarCoordenadorNome(txtCoordenador.Text);
-            pesquisaCood.Curso = txtNome.Text;
+            var pesquisaCood            = controles.procurarCoordenadorNome(txtCoordenador.Text);
+            pesquisaCood.Curso_id       = Convert.ToInt32(txtCodigo.Value);
 
-            curso.Coordernador_id = pesquisaCood.NR;
+            curso.Coordernador_id       = pesquisaCood.NR;
 
             controles.excluirCoordenador(Convert.ToInt32(pesquisaCood.NR));
             controles.adicionarCoordenador(pesquisaCood);

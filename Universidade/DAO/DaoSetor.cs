@@ -30,6 +30,18 @@ namespace Universidade.DAO
             return listaSetor;
         }
 
+        public List<Setor> listarSetorCodigo(int item)
+        {
+            List<Setor> listinha = listaSetor.FindAll(x => x.Codigo == item);
+            return listinha;
+        }
+
+        public List<Setor> listarSetorNome(string item)
+        {
+            List<Setor> listinha = listaSetor.FindAll(x => x.Tipo == item);
+            return listinha;
+        }
+
         public void excluirSetor(int item)
         {
             listaSetor.RemoveAll(x => x.Codigo == item);
@@ -40,6 +52,18 @@ namespace Universidade.DAO
         {
             Setor Setor = listaSetor.Find(x => x.Codigo == item);
             return Setor;
+        }
+
+        public Setor procurarSetorNome(string item)
+        {
+            Setor Setor = listaSetor.Find(x => x.Tipo == item);
+            return Setor;
+        }
+
+        public string procurarSetorNomes(int item)
+        {
+            Setor Setor = listaSetor.Find(x => x.Codigo == item);
+            return Setor.Tipo;
         }
     }
 }

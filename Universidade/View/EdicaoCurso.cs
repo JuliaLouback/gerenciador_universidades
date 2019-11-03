@@ -44,8 +44,10 @@ namespace Universidade.View
             addItem.FlatAppearance.BorderSize = 1;
 
             removerMaterias.FlatStyle = FlatStyle.Flat;
-            removerMaterias.FlatAppearance.BorderColor = Color.ForestGreen;
+            removerMaterias.FlatAppearance.BorderColor = Color.Red;
             removerMaterias.FlatAppearance.BorderSize = 1;
+
+            //txtNome.Enabled = false;
 
             verificar = codigo;
 
@@ -120,8 +122,8 @@ namespace Universidade.View
             materia.Periodo         = Convert.ToInt32(txtPeriodo.Text);
 
             var pesquisa = controles.procurarProfessorNome(txtProfessor.Text);
-            pesquisa.Curso = txtNome.Text;
-            pesquisa.Materia = txtNomeM.Text;
+            pesquisa.Curso_id       = Convert.ToInt32(txtCodigo.Value);
+            pesquisa.Materia_id     = Convert.ToInt32(txtCod.Value);
 
             materia.Professor_id = pesquisa.NR;
 
@@ -137,8 +139,8 @@ namespace Universidade.View
             else
             {
                 var pesquisaProf2 = controles.procurarProfessorNome(NomeProf);
-                pesquisaProf2.Curso = "";
-                pesquisaProf2.Materia = "";
+                pesquisaProf2.Curso_id   = 0;
+                pesquisaProf2.Materia_id = 0;
                 controles.excluirProfessor(Convert.ToInt32(pesquisaProf2.NR));
                 controles.adicionarProfessor(pesquisaProf2);
 
@@ -165,8 +167,8 @@ namespace Universidade.View
             materia.Periodo = Convert.ToInt32(txtNPeriodo.Text);
 
             var pesquisa = controles.procurarProfessorNome(txtNProfessor.Text);
-            pesquisa.Curso   = txtNome.Text;
-            pesquisa.Materia = txtNNome.Text;
+            pesquisa.Curso_id   = Convert.ToInt32(txtCodigo.Value); ;
+            pesquisa.Materia_id = Convert.ToInt32(txtNCodigo.Value); ;
 
             materia.Professor_id = pesquisa.NR;
 
@@ -194,7 +196,7 @@ namespace Universidade.View
             curso.QuantidadePeriodo = Convert.ToInt32(txtQuantidadePeriodo.Text);
 
             var pesquisaCood = controles.procurarCoordenadorNome(txtCoordenador.Text);
-            pesquisaCood.Curso = txtNome.Text; 
+            pesquisaCood.Curso_id = Convert.ToInt32(txtCodigo.Value); 
 
             curso.Coordernador_id = pesquisaCood.NR;
             if (NomeCoor == txtCoordenador.Text)
@@ -204,7 +206,7 @@ namespace Universidade.View
             } else
             {
                 var pesquisaCood2 = controles.procurarCoordenadorNome(NomeCoor);
-                pesquisaCood2.Curso = "";
+                pesquisaCood2.Curso_id = 0;
                 controles.excluirCoordenador(Convert.ToInt32(pesquisaCood2.NR));
                 controles.adicionarCoordenador(pesquisaCood2);
 

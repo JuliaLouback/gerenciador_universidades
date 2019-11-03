@@ -15,7 +15,8 @@ namespace Universidade.View
 {
     public partial class CadastroCoordenador : Form
     {
-        public int verificar = 0; 
+        public int verificar = 0;
+        public int curso_id = 0;
         public CadastroCoordenador(int NR)
         {
             InitializeComponent();
@@ -56,6 +57,10 @@ namespace Universidade.View
             txtCidade.Text = item.Endereco.Cidade;
             txtTelefoneCelular.Text = item.Telefone.TelefoneCelular;
             txtTelefoneFixo.Text = item.Telefone.TelefoneFixo;
+
+            curso_id = item.Curso_id;
+            // var pesquisaCurso = new ControleClass().procurarCursoNomes(curso_id);
+            txtCurso.Text = new ControleClass().procurarCursoNomes(curso_id);
         }
 
         private void BtnCadastrarUsuario_Click(object sender, EventArgs e)
@@ -72,7 +77,7 @@ namespace Universidade.View
             coordenador.CPF = txtCpf.Text;
             coordenador.NR = Convert.ToInt32(txtNR.Text);
             coordenador.Email = txtEmail.Text;
-
+            coordenador.Curso_id = curso_id;
             endereco.Cep = txtCep.Text;
             endereco.Numero = Convert.ToInt32(txtNumero.Value);
             endereco.Rua = txtRua.Text;

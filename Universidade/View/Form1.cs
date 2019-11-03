@@ -53,7 +53,7 @@ namespace Universidade
 
         private void btnCadastrarSetores_Click(object sender, EventArgs e)
         {
-            Setores setor = new Setores();
+            TelaSetores setor = new TelaSetores();
             Hide();
             setor.Show();
         }
