@@ -122,5 +122,10 @@ namespace Universidade.View
         {
            
         }
+
+        private void BtnPesquisa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

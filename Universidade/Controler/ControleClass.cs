@@ -201,6 +201,11 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        internal List<Aluno> listarAlunoNome(object text)
+        {
+            throw new NotImplementedException();
+        }
+
         public string procurarMateriasNomes(int codigo, int codigo2)
         {
             var pesquisa = daoCurso.procurarMateriasNomes(codigo, codigo2);
@@ -285,6 +290,24 @@ namespace Universidade.Controler
         public List<Aluno> listarAluno()
         {
             var pesquisa = daoAluno.listarAluno();
+            return pesquisa;
+        }
+
+        public List<Aluno> listarAlunoCodigo(int item)
+        {
+            var pesquisa = daoAluno.listarAlunoCodigo(item);
+            return pesquisa;
+        }
+
+        public List<Aluno> listarAlunoNome(string item)
+        {
+            var pesquisa = daoAluno.listarAlunoNome(item);
+            return pesquisa;
+        }
+
+        public List<Aluno> listarAlunoCurso(string item)
+        {
+            var pesquisa = daoAluno.listarAlunoCurso(item);
             return pesquisa;
         }
 

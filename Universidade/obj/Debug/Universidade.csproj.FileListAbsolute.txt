@@ -156,3 +156,6 @@ C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.F
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Cargos.resources
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.TelaSetores.resources
 C:\Projetos\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroCargo.resources
+C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.CadastroCargo.resources
+C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.Cargos.resources
+C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.View.TelaSetores.resources

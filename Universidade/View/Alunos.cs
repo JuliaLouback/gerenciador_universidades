@@ -114,5 +114,59 @@ namespace Universidade.View
             Hide();
             cadastroAluno.Show();
         }
+
+        private void BtnPesquisa_Click(object sender, EventArgs e)
+        {
+            List<Aluno> lstUsr = controle.listarAlunoCodigo(Convert.ToInt32(txtPesquisaCod.Value));
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                NR = usuario.NR,
+                Nome = usuario.Nome,
+                CPF = usuario.CPF,
+                Email = usuario.Email,
+                Curso = controle.procurarCursoNomes(usuario.Curso_id)
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+
+        private void BtnPesquisaNome_Click(object sender, EventArgs e)
+        {
+            List<Aluno> lstUsr = new ControleClass().listarAlunoNome(txtPesquisaCurso.Text);
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                NR = usuario.NR,
+                Nome = usuario.Nome,
+                CPF = usuario.CPF,
+                Email = usuario.Email,
+                Curso = controle.procurarCursoNomes(usuario.Curso_id)
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            List<Aluno> lstUsr = new ControleClass().listarAlunoNome(txtPesquisaCurso.Text);
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                NR = usuario.NR,
+                Nome = usuario.Nome,
+                CPF = usuario.CPF,
+                Email = usuario.Email,
+                Curso = controle.procurarCursoNomes(usuario.Curso_id)
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
     }
 }

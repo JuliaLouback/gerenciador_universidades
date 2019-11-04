@@ -30,6 +30,24 @@ namespace Universidade.DAO
             return listaAluno;
         }
 
+        public List<Aluno> listarAlunoCodigo(int codigo)
+        {
+            List<Aluno> aluninho = listaAluno.FindAll(x => x.NR == codigo);
+            return aluninho;
+        }
+
+        public List<Aluno> listarAlunoNome(string codigo)
+        {
+            List<Aluno> aluninho = listaAluno.FindAll(x => x.Nome == codigo);
+            return aluninho;
+        }
+
+        public List<Aluno> listarAlunoCurso(string codigo)
+        {
+            List<Aluno> aluninho = listaAluno.FindAll(x => x.Nome == codigo);
+            return aluninho;
+        }
+
         public void excluirAluno(int item)
         {
             listaAluno.RemoveAll(x => x.NR == item);
