@@ -31,6 +31,14 @@ namespace Universidade.View
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
 
+            btnPesquisa.FlatStyle = FlatStyle.Flat;
+            btnPesquisa.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisa.FlatAppearance.BorderSize = 1;
+
+            btnPesquisaNome.FlatStyle = FlatStyle.Flat;
+            btnPesquisaNome.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisaNome.FlatAppearance.BorderSize = 1;
+
 
             DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
             editar.Name = "Editar";
@@ -109,5 +117,45 @@ namespace Universidade.View
             Hide();
             cadastroUsuario.Show();
         }
+
+        private void BtnPesquisa_Click(object sender, EventArgs e)
+        {
+            List<Professores> lstUsr = controle.procurarProfessoresLista(Convert.ToInt32(txtPesquisaCod.Value));
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                NR = usuario.NR,
+                Nome = usuario.Nome,
+                CPF = usuario.CPF,
+                Email = usuario.Email,
+                Curso = controle.procurarCursoNomes(usuario.Curso_id),
+                Matérias = controle.procurarMateriasNomes(usuario.Curso_id, usuario.Materia_id)
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        
     }
-}
+
+        private void BtnPesquisaNome_Click(object sender, EventArgs e)
+        {
+            List<Professores> lstUsr = controle.procurarProfessoresNome(txtPesquisaNome.Text);
+            var novaListUsuario = lstUsr.Select(usuario => new
+            {
+                NR = usuario.NR,
+                Nome = usuario.Nome,
+                CPF = usuario.CPF,
+                Email = usuario.Email,
+                Curso = controle.procurarCursoNomes(usuario.Curso_id),
+                Matérias = controle.procurarMateriasNomes(usuario.Curso_id, usuario.Materia_id)
+            }).ToList();
+
+            tabela.DataSource = novaListUsuario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+    }
+    }
+

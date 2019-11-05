@@ -113,6 +113,18 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        public List<Curso> procurarCursoCodigo(int item)
+        {
+            List<Curso> listinha = daoCurso.procurarCursoCodigo(item);
+            return listinha;
+        }
+
+        public List<Curso> procurarCursosNome(string item)
+        {
+            List<Curso> listinha = daoCurso.procurarCursosNome(item);
+            return listinha;
+        }
+
         public Setor procurarSetor(int codigo)
         {
             var pesquisa = daoSetor.procurarSetor(codigo);
@@ -332,6 +344,29 @@ namespace Universidade.Controler
         public List<Cargo> procurarCargoLista(int codigo)
         {
             var pesquisa = daoCargo.procurarCargoLista(codigo);
+            return pesquisa;
+        }
+        public List<Professores> procurarProfessoresLista(int codigo)
+        {
+            var pesquisa = daoProfessor.procurarProfessoresLista(codigo);
+            return pesquisa;
+        }
+
+        public List<Professores> procurarProfessoresNome(string codigo)
+        {
+            var pesquisa = daoProfessor.procurarProfessoresNome(codigo);
+            return pesquisa;
+        }
+
+        public List<Funcionario> procurarFuncionarioLista(int codigo)
+        {
+            List<Funcionario> pesquisa = daoFuncionario.procurarFuncionarioLista(codigo);
+            return pesquisa;
+        }
+
+        public List<Funcionario> procurarFuncionariosNome(string codigo)
+        {
+            List<Funcionario> pesquisa = daoFuncionario.procurarFuncionariosNome(codigo);
             return pesquisa;
         }
     }

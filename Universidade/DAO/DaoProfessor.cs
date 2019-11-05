@@ -47,5 +47,17 @@ namespace Universidade.DAO
             Professores professsor = listaProfessores.Find(x => x.Nome == item);
             return professsor;
         }
+
+        public List<Professores> procurarProfessoresLista(int item)
+        {
+            List<Professores> professsor = listaProfessores.FindAll(x => x.NR == item);
+            return professsor;
+        }
+
+        public List<Professores> procurarProfessoresNome(string item)
+        {
+            List<Professores> professsor = listaProfessores.FindAll(x => x.Nome == item);
+            return professsor;
+        }
     }
 }

@@ -126,5 +126,17 @@ namespace Universidade.DAO
         {
           listaMateria.RemoveAll(x => x.Codigo == item2);
         }
+
+        public List<Curso> procurarCursoCodigo(int item)
+        {
+            List<Curso> listinha = listaCurso.FindAll(x => x.Codigo == item);
+            return listinha;
+        }
+
+        public List<Curso> procurarCursosNome(string item)
+        {
+            List<Curso> listinha = listaCurso.FindAll(x => x.Nome == item);
+            return listinha;
+        }
     }
 }

@@ -29,6 +29,14 @@ namespace Universidade.View
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
 
+            btnPesquisa.FlatStyle = FlatStyle.Flat;
+            btnPesquisa.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisa.FlatAppearance.BorderSize = 1;
+
+            btnPesquisaNome.FlatStyle = FlatStyle.Flat;
+            btnPesquisaNome.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisaNome.FlatAppearance.BorderSize = 1;
+
             DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
             editar.Name = "Editar";
 
@@ -122,6 +130,40 @@ namespace Universidade.View
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnPesquisa_Click(object sender, EventArgs e)
+        {
+            List<Funcionario> lstFun = new ControleClass().procurarFuncionarioLista(Convert.ToInt32(txtPesquisaCod.Value));
+            var novaListFuncionario = lstFun.Select(funcionario => new
+            {
+                NR = funcionario.NR,
+                Nome = funcionario.Nome,
+                Setor = controle.procurarSetorNomes(funcionario.Setor_id),
+                Cargo = controle.procurarCargoNomes(funcionario.Cargo_id)
+            }).ToList();
+
+            tabela.DataSource = novaListFuncionario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+
+        private void BtnPesquisaNome_Click(object sender, EventArgs e)
+        {
+            List<Funcionario> lstFun = new ControleClass().procurarFuncionariosNome(txtPesquisaCurso.Text);
+            var novaListFuncionario = lstFun.Select(funcionario => new
+            {
+                NR = funcionario.NR,
+                Nome = funcionario.Nome,
+                Setor = controle.procurarSetorNomes(funcionario.Setor_id),
+                Cargo = controle.procurarCargoNomes(funcionario.Cargo_id)
+            }).ToList();
+
+            tabela.DataSource = novaListFuncionario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
         }
     }
 }

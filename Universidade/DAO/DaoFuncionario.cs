@@ -47,5 +47,17 @@ namespace Universidade.DAO
             return funcionario;
         }
 
+        public List<Funcionario> procurarFuncionarioLista(int codigo)
+        {
+            List<Funcionario> listfuncionarios = listaFuncionarios.FindAll(x => x.NR == codigo);
+            return listfuncionarios;
+        }
+
+        public List<Funcionario> procurarFuncionariosNome(string codigo)
+        {
+            List<Funcionario> listfuncionarios = listaFuncionarios.FindAll(x => x.Nome == codigo);
+            return listfuncionarios;
+        }
+
     }
 }
