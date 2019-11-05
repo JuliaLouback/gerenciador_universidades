@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alunos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cadastrarFuncionario = new System.Windows.Forms.Button();
@@ -43,9 +43,9 @@
             this.txtPesquisaCod = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.btnPesquisa = new System.Windows.Forms.Button();
-            this.textPesquisaCurso = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnPesquisarCurso = new System.Windows.Forms.Button();
+            this.txtCurso = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisaCod)).BeginInit();
@@ -91,23 +91,23 @@
             this.tabela.AllowUserToAddRows = false;
             this.tabela.AllowUserToDeleteRows = false;
             this.tabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabela.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabela.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tabela.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tabela.DefaultCellStyle = dataGridViewCellStyle6;
             this.tabela.Location = new System.Drawing.Point(59, 192);
             this.tabela.Name = "tabela";
             this.tabela.Size = new System.Drawing.Size(1183, 299);
@@ -135,11 +135,11 @@
             this.label1.TabIndex = 64;
             this.label1.Text = "Sistema de Gerenciamento de Universidades\r\n";
             // 
-            // txtPesquisaNome
+            // txtPesquisaCurso
             // 
             this.txtPesquisaCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisaCurso.Location = new System.Drawing.Point(884, 536);
-            this.txtPesquisaCurso.Name = "txtPesquisaNome";
+            this.txtPesquisaCurso.Location = new System.Drawing.Point(884, 540);
+            this.txtPesquisaCurso.Name = "txtPesquisaCurso";
             this.txtPesquisaCurso.Size = new System.Drawing.Size(216, 26);
             this.txtPesquisaCurso.TabIndex = 78;
             // 
@@ -159,7 +159,7 @@
             this.btnPesquisaNome.BackColor = System.Drawing.Color.DarkCyan;
             this.btnPesquisaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisaNome.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisaNome.Location = new System.Drawing.Point(1121, 534);
+            this.btnPesquisaNome.Location = new System.Drawing.Point(1121, 538);
             this.btnPesquisaNome.Name = "btnPesquisaNome";
             this.btnPesquisaNome.Size = new System.Drawing.Size(123, 28);
             this.btnPesquisaNome.TabIndex = 76;
@@ -204,14 +204,6 @@
             this.btnPesquisa.UseVisualStyleBackColor = false;
             this.btnPesquisa.Click += new System.EventHandler(this.BtnPesquisa_Click);
             // 
-            // textPesquisaCurso
-            // 
-            this.textPesquisaCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPesquisaCurso.Location = new System.Drawing.Point(884, 568);
-            this.textPesquisaCurso.Name = "textPesquisaCurso";
-            this.textPesquisaCurso.Size = new System.Drawing.Size(216, 26);
-            this.textPesquisaCurso.TabIndex = 81;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -228,7 +220,7 @@
             this.btnPesquisarCurso.BackColor = System.Drawing.Color.DarkCyan;
             this.btnPesquisarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisarCurso.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisarCurso.Location = new System.Drawing.Point(1121, 566);
+            this.btnPesquisarCurso.Location = new System.Drawing.Point(1121, 569);
             this.btnPesquisarCurso.Name = "btnPesquisarCurso";
             this.btnPesquisarCurso.Size = new System.Drawing.Size(123, 28);
             this.btnPesquisarCurso.TabIndex = 79;
@@ -236,12 +228,21 @@
             this.btnPesquisarCurso.UseVisualStyleBackColor = false;
             this.btnPesquisarCurso.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // txtCurso
+            // 
+            this.txtCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurso.FormattingEnabled = true;
+            this.txtCurso.Location = new System.Drawing.Point(884, 572);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.Size = new System.Drawing.Size(216, 24);
+            this.txtCurso.TabIndex = 81;
+            // 
             // Alunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 618);
-            this.Controls.Add(this.textPesquisaCurso);
+            this.Controls.Add(this.txtCurso);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPesquisarCurso);
             this.Controls.Add(this.txtPesquisaCurso);
@@ -282,8 +283,8 @@
         private System.Windows.Forms.NumericUpDown txtPesquisaCod;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnPesquisa;
-        private System.Windows.Forms.TextBox textPesquisaCurso;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnPesquisarCurso;
+        private System.Windows.Forms.ComboBox txtCurso;
     }
 }

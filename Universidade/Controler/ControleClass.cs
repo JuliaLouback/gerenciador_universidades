@@ -305,7 +305,7 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
-        public List<Aluno> listarAlunoCurso(string item)
+        public List<Aluno> listarAlunoCurso(int item)
         {
             var pesquisa = daoAluno.listarAlunoCurso(item);
             return pesquisa;

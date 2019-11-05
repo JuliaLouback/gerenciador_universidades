@@ -42,9 +42,9 @@ namespace Universidade.DAO
             return aluninho;
         }
 
-        public List<Aluno> listarAlunoCurso(string codigo)
+        public List<Aluno> listarAlunoCurso(int codigo)
         {
-            List<Aluno> aluninho = listaAluno.FindAll(x => x.Nome == codigo);
+            List<Aluno> aluninho = listaAluno.FindAll(x => x.Curso_id == codigo);
             return aluninho;
         }
 

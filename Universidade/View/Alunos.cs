@@ -19,6 +19,7 @@ namespace Universidade.View
         public Alunos()
         {
             InitializeComponent();
+            PreencherComboCurso();
 
             cadastrarFuncionario.FlatStyle = FlatStyle.Flat;
             cadastrarFuncionario.FlatAppearance.BorderColor = Color.ForestGreen;
@@ -27,6 +28,19 @@ namespace Universidade.View
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+
+            btnPesquisa.FlatStyle = FlatStyle.Flat;
+            btnPesquisa.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisa.FlatAppearance.BorderSize = 1;
+
+            btnPesquisaNome.FlatStyle = FlatStyle.Flat;
+            btnPesquisaNome.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisaNome.FlatAppearance.BorderSize = 1;
+
+
+            btnPesquisarCurso.FlatStyle = FlatStyle.Flat;
+            btnPesquisarCurso.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisarCurso.FlatAppearance.BorderSize = 1;
 
             Preencher();
 
@@ -76,6 +90,15 @@ namespace Universidade.View
             tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
             tabela.CellClick += tabela_CellClick;
+        }
+
+        private void PreencherComboCurso()
+        {
+            var listaCurso = controle.listarCurso();
+            foreach (Curso curso in listaCurso)
+            {
+                txtCurso.Items.Add(curso.Nome);
+            }
         }
 
         private void tabela_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -153,7 +176,8 @@ namespace Universidade.View
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            List<Aluno> lstUsr = new ControleClass().listarAlunoNome(txtPesquisaCurso.Text);
+            var pesquisinha = controle.procurarCursoNome(txtCurso.Text);
+            List<Aluno> lstUsr = new ControleClass().listarAlunoCurso(pesquisinha.Codigo);
             var novaListUsuario = lstUsr.Select(usuario => new
             {
                 NR = usuario.NR,
