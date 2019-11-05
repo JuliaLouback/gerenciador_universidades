@@ -18,6 +18,7 @@ namespace Universidade.View
         ControleClass controles = new ControleClass();
 
         private Curso curso     = new Curso();
+        public int numerinho = 0;
 
         private static List<Materias> listaMaterias = new List<Materias>();
 
@@ -42,7 +43,15 @@ namespace Universidade.View
             PrencheerComboProfessor();
            
             Random numRand = new Random();
-            txtCodigo.Value = numRand.Next(1000, 5000);     //atribuir números randômicos para as matérias e os demais NRs usando esse padrão
+            numerinho = numRand.Next(1000, 5000);     //atribuir números randômicos para as matérias e os demais NRs usando esse padrão
+            if (controles.procurarCurso(numerinho) == null)
+            {
+                txtCodigo.Value = numRand.Next(1000, 5000);
+            } else
+            {
+                Random numRande = new Random();
+                numerinho = numRande.Next(1000, 5000);
+            }
             curso.Codigo = Convert.ToInt32(txtCodigo.Value); //precisa de um loop para verificar se já tem cadastro   
         }
 
