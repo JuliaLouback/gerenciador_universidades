@@ -375,5 +375,11 @@ namespace Universidade.Controler
             List<Funcionario> pesquisa = daoFuncionario.procurarFuncionariosNome(codigo);
             return pesquisa;
         }
+
+        public List<Professores> listarProfessorMateria()
+        {
+            List<Professores> pesquisa = daoProfessor.listarProfessorMateria();
+            return pesquisa;
+        }
     }
 }

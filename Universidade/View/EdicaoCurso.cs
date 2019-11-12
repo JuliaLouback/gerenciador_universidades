@@ -93,7 +93,7 @@ namespace Universidade.View
 
         public void PrencheerComboProfessor()
         {
-            var listaProfessor = controles.listarProfessor();
+            var listaProfessor = controles.listarProfessorMateria();
             foreach (Professores professores in listaProfessor)
             {
                 txtProfessor.Items.Add(professores.Nome);

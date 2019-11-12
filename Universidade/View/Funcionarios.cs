@@ -183,7 +183,7 @@ namespace Universidade.View
 
         private void btnPesquisaSetor_Click(object sender, EventArgs e)
         {
-            List<Funcionario> lstFun = new ControleClass().listarFuncionarioSetor(txtPesquisaCurso.Text);
+            List<Funcionario> lstFun = new ControleClass().listarFuncionarioSetor(txtPesquisaSetor.Text);
             var novaListFuncionario = lstFun.Select(funcionario => new
             {
                 NR = funcionario.NR,

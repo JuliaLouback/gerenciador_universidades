@@ -112,7 +112,7 @@ namespace Universidade.View
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            TelaSetores form1 = new TelaSetores();
             Hide();
             form1.Show();
         }

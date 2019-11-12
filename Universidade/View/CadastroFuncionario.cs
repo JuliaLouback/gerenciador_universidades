@@ -90,68 +90,77 @@ namespace Universidade.View
 
         private void btnCadastrarUsuario_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
-
-            Endereco endereco = new Endereco();
-            Telefone telefone = new Telefone();
-
-            funcionario.Nome    = txtNome.Text;
-            funcionario.Idade  = Convert.ToInt32(nudIdade.Value);
-            funcionario.Sexo = cbxSexo.Text;
-            funcionario.EstadoCivil = cbxEstadoCivil.Text;
-            funcionario.CPF = maskCPF.Text;
-            funcionario.NR = Convert.ToInt32(nudNR.Text);
-            funcionario.Email = txtEmail.Text;
-
-            telefone.TelefoneCelular = Convert.ToString(maskCelular.Text);
-            telefone.TelefoneFixo = Convert.ToString(maskTelefone.Text);
-
-            endereco.Cep = maskCEP.Text;
-            endereco.Numero = Convert.ToInt32(nudNumero.Value);
-            endereco.Rua = txtRua.Text;
-            endereco.Bairro = txtBairro.Text;
-            endereco.Cidade = txtCidade.Text;
-            endereco.Estado = txtEstado.Text;
-            endereco.Pais = txtPais.Text;
-
-            funcionario.Endereco = endereco;
-            funcionario.Telefone = telefone;
-            funcionario.Setor_id = setor_id;
-
-            var pesquisaCargo = controleClasse.procurarCargoNome(setor_id, txtCargo.Text);
-           
-            funcionario.Cargo_id = pesquisaCargo.Codigo;
-
-            if (verificar == 0)
+            if (string.IsNullOrEmpty(txtCargo.Text) || string.IsNullOrEmpty(txtSetor.Text))
             {
-                new ControleClass().adicionarFuncionario(funcionario);
-                MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Insira o setor e cargo!", "Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
-                var pesquisa = new ControleClass().procurarFuncionario(verificar);
-                if (pesquisa != null)
+
+
+                Funcionario funcionario = new Funcionario();
+
+                Endereco endereco = new Endereco();
+                Telefone telefone = new Telefone();
+
+                funcionario.Nome = txtNome.Text;
+                funcionario.Idade = Convert.ToInt32(nudIdade.Value);
+                funcionario.Sexo = cbxSexo.Text;
+                funcionario.EstadoCivil = cbxEstadoCivil.Text;
+                funcionario.CPF = maskCPF.Text;
+                funcionario.NR = Convert.ToInt32(nudNR.Text);
+                funcionario.Email = txtEmail.Text;
+
+                telefone.TelefoneCelular = Convert.ToString(maskCelular.Text);
+                telefone.TelefoneFixo = Convert.ToString(maskTelefone.Text);
+
+                endereco.Cep = maskCEP.Text;
+                endereco.Numero = Convert.ToInt32(nudNumero.Value);
+                endereco.Rua = txtRua.Text;
+                endereco.Bairro = txtBairro.Text;
+                endereco.Cidade = txtCidade.Text;
+                endereco.Estado = txtEstado.Text;
+                endereco.Pais = txtPais.Text;
+
+                funcionario.Endereco = endereco;
+                funcionario.Telefone = telefone;
+                funcionario.Setor_id = setor_id;
+
+                var pesquisaCargo = controleClasse.procurarCargoNome(setor_id, txtCargo.Text);
+
+                funcionario.Cargo_id = pesquisaCargo.Codigo;
+
+                if (verificar == 0)
                 {
-                    pesquisa.Nome = txtNome.Text;
-                    pesquisa.Idade = Convert.ToInt32(nudIdade.Value);
-                    pesquisa.Sexo = cbxSexo.Text;
-                    pesquisa.EstadoCivil = cbxEstadoCivil.Text;
-                    pesquisa.CPF = maskCPF.Text;
-                    pesquisa.NR = Convert.ToInt32(nudNR.Text);
-                    pesquisa.Email = txtEmail.Text;
-
-
-                    pesquisa.Endereco = endereco;
-                    pesquisa.Telefone = telefone;
-
-                    controleClasse.excluirFuncionario(verificar);
-                    controleClasse.adicionarFuncionario(pesquisa);
-
+                    new ControleClass().adicionarFuncionario(funcionario);
+                    MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                controleClasse.excluirFuncionario(verificar);
-                controleClasse.adicionarFuncionario(funcionario);
+                else
+                {
+                    var pesquisa = new ControleClass().procurarFuncionario(verificar);
+                    if (pesquisa != null)
+                    {
+                        pesquisa.Nome = txtNome.Text;
+                        pesquisa.Idade = Convert.ToInt32(nudIdade.Value);
+                        pesquisa.Sexo = cbxSexo.Text;
+                        pesquisa.EstadoCivil = cbxEstadoCivil.Text;
+                        pesquisa.CPF = maskCPF.Text;
+                        pesquisa.NR = Convert.ToInt32(nudNR.Text);
+                        pesquisa.Email = txtEmail.Text;
 
-                MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        pesquisa.Endereco = endereco;
+                        pesquisa.Telefone = telefone;
+
+                        controleClasse.excluirFuncionario(verificar);
+                        controleClasse.adicionarFuncionario(pesquisa);
+
+                    }
+                    controleClasse.excluirFuncionario(verificar);
+                    controleClasse.adicionarFuncionario(funcionario);
+
+                    MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
         }

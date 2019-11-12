@@ -59,5 +59,20 @@ namespace Universidade.DAO
             List<Professores> professsor = listaProfessores.FindAll(x => x.Nome == item);
             return professsor;
         }
+
+        public List<Professores> listarProfessorMateria()
+        {
+            List<Professores> listaProfessor = new List<Professores>();
+
+            foreach (var prof in listaProfessores)
+            {
+                var pesquisa = new DaoCurso().listarProfessorMateria(prof.NR);
+                if(pesquisa == null)
+                {
+                    listaProfessor.Add(prof);
+                }
+            }
+            return listaProfessor;
+        }
     }
 }

@@ -76,7 +76,8 @@ namespace Universidade.DAO
             Curso cursoProcurarN = listaCurso.Find(x => x.Codigo == item);
             List<Materias> listinha = new List<Materias>();
 
-            foreach(Materias cursinho in cursoProcurarN.Materias)
+          
+            foreach (Materias cursinho in cursoProcurarN.Materias)
             {
                 if (cursinho.Periodo == item2)
                 {
@@ -84,6 +85,12 @@ namespace Universidade.DAO
                 }
             }
             return listinha;
+        }
+
+        public Materias listarProfessorMateria(int item)
+        {
+            var procurar = listaMateria.Find(x => x.Codigo == item);
+            return procurar;
         }
 
         public Materias procurarMateriaNome (int item, string item2)
