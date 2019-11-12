@@ -47,30 +47,33 @@ namespace Universidade
 
         private void PreencherCampos(Professores item)
         {
-            txtNome.Text        = item.Nome;
-            txtIdade.Value      = Convert.ToInt32(item.Idade);
-            txtSexo.Text        = item.Sexo;
+            txtNome.Text = item.Nome;
+            txtIdade.Value = Convert.ToInt32(item.Idade);
+            txtSexo.Text = item.Sexo;
             txtEstadoCivil.Text = item.EstadoCivil;
-            txtCpf.Text         = item.CPF;
-            txtNR.Value         = item.NR;
-            txtEmail.Text       = item.Email;
-            txtNumero.Value     = item.Endereco.Numero;
-            txtRua.Text         = item.Endereco.Rua;
-            txtCep.Text         = item.Endereco.Cep;
-            txtBairro.Text      = item.Endereco.Bairro;
-            txtEstado.Text      = item.Endereco.Estado;
-            txtPais.Text        = item.Endereco.Pais;
-            txtCidade.Text      = item.Endereco.Cidade;
+            txtCpf.Text = item.CPF;
+            txtNR.Value = item.NR;
+            txtEmail.Text = item.Email;
+            txtNumero.Value = item.Endereco.Numero;
+            txtRua.Text = item.Endereco.Rua;
+            txtCep.Text = item.Endereco.Cep;
+            txtBairro.Text = item.Endereco.Bairro;
+            txtEstado.Text = item.Endereco.Estado;
+            txtPais.Text = item.Endereco.Pais;
+            txtCidade.Text = item.Endereco.Cidade;
             txtTelefoneCelular.Text = item.Telefone.TelefoneCelular;
-            txtTelefoneFixo.Text    = item.Telefone.TelefoneFixo;
+            txtTelefoneFixo.Text = item.Telefone.TelefoneFixo;
 
-            curso_id            = item.Curso_id;
-            var pesquisaCurso   = controleClasse.procurarCurso(item.Curso_id);
-            txtCurso.Text       = pesquisaCurso.Nome;
-
+            curso_id = item.Curso_id;
+            var pesquisaCurso = controleClasse.procurarCurso(item.Curso_id);
+            if (pesquisaCurso != null) { 
+                txtCurso.Text = pesquisaCurso.Nome;
+            }
             materia_id          = item.Materia_id;
             var pesquisaMat     = controleClasse.procurarMateriasNomes(item.Curso_id, item.Materia_id);
-            txtMateria.Text     = pesquisaMat;
+            if (pesquisaMat != null) {
+                txtMateria.Text = pesquisaMat;
+            }
         }
         private void BtnCadastrarUsuario_Click(object sender, EventArgs e)
         {
