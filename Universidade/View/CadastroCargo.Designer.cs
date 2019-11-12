@@ -77,7 +77,7 @@
             this.txtSetor.FormattingEnabled = true;
             this.txtSetor.Location = new System.Drawing.Point(514, 273);
             this.txtSetor.Name = "txtSetor";
-            this.txtSetor.Size = new System.Drawing.Size(276, 26);
+            this.txtSetor.Size = new System.Drawing.Size(267, 26);
             this.txtSetor.TabIndex = 61;
             // 
             // label6
@@ -126,7 +126,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(342, 129);
+            this.label3.Location = new System.Drawing.Point(336, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(260, 31);
             this.label3.TabIndex = 56;
@@ -170,7 +170,7 @@
             this.btnVoltar.BackColor = System.Drawing.Color.DarkCyan;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(501, 476);
+            this.btnVoltar.Location = new System.Drawing.Point(488, 474);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(128, 43);
             this.btnVoltar.TabIndex = 66;
@@ -183,7 +183,7 @@
             this.btnCadastrarUsuario.BackColor = System.Drawing.Color.ForestGreen;
             this.btnCadastrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarUsuario.Location = new System.Drawing.Point(666, 476);
+            this.btnCadastrarUsuario.Location = new System.Drawing.Point(653, 474);
             this.btnCadastrarUsuario.Name = "btnCadastrarUsuario";
             this.btnCadastrarUsuario.Size = new System.Drawing.Size(128, 43);
             this.btnCadastrarUsuario.TabIndex = 65;

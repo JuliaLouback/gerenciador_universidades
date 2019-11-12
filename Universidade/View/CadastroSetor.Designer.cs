@@ -43,7 +43,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtNR = new System.Windows.Forms.NumericUpDown();
@@ -59,7 +58,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.MaskedTextBox();
-            this.txtRua = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -74,6 +72,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtRua = new System.Windows.Forms.TextBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNR)).BeginInit();
@@ -230,15 +230,6 @@
             this.txtEmail.Size = new System.Drawing.Size(179, 24);
             this.txtEmail.TabIndex = 210;
             // 
-            // txtCep
-            // 
-            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(109, 543);
-            this.txtCep.Mask = "#####-###";
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(179, 24);
-            this.txtCep.TabIndex = 209;
-            // 
             // txtCpf
             // 
             this.txtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -392,14 +383,6 @@
             this.txtBairro.Size = new System.Drawing.Size(179, 24);
             this.txtBairro.TabIndex = 194;
             // 
-            // txtRua
-            // 
-            this.txtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(477, 541);
-            this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(174, 24);
-            this.txtRua.TabIndex = 193;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -550,12 +533,32 @@
             this.txtNome.Size = new System.Drawing.Size(179, 24);
             this.txtNome.TabIndex = 179;
             // 
+            // txtRua
+            // 
+            this.txtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRua.Location = new System.Drawing.Point(477, 541);
+            this.txtRua.Name = "txtRua";
+            this.txtRua.Size = new System.Drawing.Size(174, 24);
+            this.txtRua.TabIndex = 225;
+            // 
+            // txtCep
+            // 
+            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCep.Location = new System.Drawing.Point(107, 543);
+            this.txtCep.Mask = "#####-###";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(181, 24);
+            this.txtCep.TabIndex = 226;
+            this.txtCep.Leave += new System.EventHandler(this.txtCep_Leave);
+            // 
             // CadastroSetor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(993, 749);
+            this.ClientSize = new System.Drawing.Size(972, 749);
+            this.Controls.Add(this.txtCep);
+            this.Controls.Add(this.txtRua);
             this.Controls.Add(this.txtLocalizacao);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.btnVoltar);
@@ -570,7 +573,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtCep);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtNR);
@@ -586,7 +588,6 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.txtBairro);
-            this.Controls.Add(this.txtRua);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
@@ -631,7 +632,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.NumericUpDown txtNR;
@@ -647,7 +647,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.MaskedTextBox txtBairro;
-        private System.Windows.Forms.MaskedTextBox txtRua;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -662,5 +661,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtRua;
+        private System.Windows.Forms.MaskedTextBox txtCep;
     }
 }

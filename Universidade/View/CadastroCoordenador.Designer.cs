@@ -102,6 +102,7 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(179, 24);
             this.txtCep.TabIndex = 128;
+            this.txtCep.Leave += new System.EventHandler(this.txtCep_Leave);
             // 
             // txtCpf
             // 

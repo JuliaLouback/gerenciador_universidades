@@ -379,7 +379,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 749);
+            this.ClientSize = new System.Drawing.Size(1161, 749);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtPeriodo);
             this.Controls.Add(this.txtProfessor);

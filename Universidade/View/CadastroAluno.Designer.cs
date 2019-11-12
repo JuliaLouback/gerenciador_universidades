@@ -80,7 +80,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(296, 90);
+            this.label3.Location = new System.Drawing.Point(320, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(255, 31);
             this.label3.TabIndex = 171;
@@ -133,6 +133,7 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(179, 24);
             this.txtCep.TabIndex = 166;
+            this.txtCep.Leave += new System.EventHandler(this.txtCep_Leave);
             // 
             // txtCpf
             // 

@@ -63,8 +63,10 @@ namespace Universidade.View
             txtCodigo.Value     = item.Codigo;
             txtNome.Text        = item.Nome;
             var pesquisaCoor    = controles.procurarCoordenador(item.Coordernador_id);
-            txtCoordenador.Text = pesquisaCoor.Nome;
-            NomeCoor            = pesquisaCoor.Nome;
+            if (pesquisaCoor != null) {
+                txtCoordenador.Text = pesquisaCoor.Nome;
+                NomeCoor = pesquisaCoor.Nome;
+            }
             txtQuantidadePeriodo.Text = Convert.ToString(item.QuantidadePeriodo);
             listaMaterias       = item.Materias; 
         }
@@ -107,9 +109,11 @@ namespace Universidade.View
             txtCarga.Value = listinhas.Carga_horaria;
 
             var listinhas2 = controles.procurarProfessor(listinhas.Professor_id);
-            txtProfessor.Text = listinhas2.Nome;
-            NomeProf = txtProfessor.Text;
-            prof = listinhas2;
+            if (listinhas2 != null) { 
+                txtProfessor.Text = listinhas2.Nome;
+                NomeProf = txtProfessor.Text;
+                prof = listinhas2;
+            }
         }
 
         private void EditarItem_Click(object sender, EventArgs e)
@@ -122,8 +126,12 @@ namespace Universidade.View
             materia.Periodo         = Convert.ToInt32(txtPeriodo.Text);
 
             var pesquisa = controles.procurarProfessorNome(txtProfessor.Text);
-            pesquisa.Curso_id       = Convert.ToInt32(txtCodigo.Value);
-            pesquisa.Materia_id     = Convert.ToInt32(txtCod.Value);
+            if (pesquisa != null)
+            {
+                pesquisa.Curso_id = Convert.ToInt32(txtCodigo.Value);
+                pesquisa.Materia_id = Convert.ToInt32(txtCod.Value);
+            }
+    
 
             materia.Professor_id = pesquisa.NR;
 
@@ -232,5 +240,6 @@ namespace Universidade.View
             Hide();
             curso.Show();
         }
+
     }
 }

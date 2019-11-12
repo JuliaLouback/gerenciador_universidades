@@ -135,6 +135,7 @@
             this.maskCEP.Name = "maskCEP";
             this.maskCEP.Size = new System.Drawing.Size(179, 24);
             this.maskCEP.TabIndex = 166;
+            this.maskCEP.Leave += new System.EventHandler(this.txtCep_Leave);
             // 
             // maskCPF
             // 

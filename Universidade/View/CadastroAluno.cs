@@ -32,7 +32,7 @@ namespace Universidade.View
             {
                 verificar = NR;
                 btnCadastrarUsuario.Text = "Editar";
-                label13.Text = "Edição de Aluno";
+                label3.Text = "Edição de Aluno";
                 var pesquisa = cadAluno.procurarAluno(NR);
                 PreencherCampos(pesquisa);
                 
@@ -128,6 +128,32 @@ namespace Universidade.View
             Alunos alunos = new Alunos();
             Hide();
             alunos.Show();
+        }
+
+        private void txtCep_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCep.Text))
+            {
+                using (var ws = new WSCorreios.AtendeClienteClient())
+
+                    try
+                    {
+                        var endereco = ws.consultaCEP(txtCep.Text.Trim());
+
+                        txtEstado.Text = endereco.uf;
+                        txtCidade.Text = endereco.cidade;
+                        txtBairro.Text = endereco.bairro;
+                        txtRua.Text = endereco.end;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Cep não localizado...");
+                    }
+            }
+            else
+            {
+                MessageBox.Show("Informe um CEP válido");
+            }
         }
     }
 }

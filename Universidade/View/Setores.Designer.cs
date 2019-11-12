@@ -66,7 +66,7 @@
             this.btnVoltar.BackColor = System.Drawing.Color.DarkCyan;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.Color.White;
-            this.btnVoltar.Location = new System.Drawing.Point(50, 531);
+            this.btnVoltar.Location = new System.Drawing.Point(50, 519);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(128, 43);
             this.btnVoltar.TabIndex = 56;
@@ -106,7 +106,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(562, 128);
+            this.label3.Location = new System.Drawing.Point(584, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 31);
             this.label3.TabIndex = 54;
@@ -135,7 +135,7 @@
             // txtPesquisaNome
             // 
             this.txtPesquisaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisaNome.Location = new System.Drawing.Point(875, 574);
+            this.txtPesquisaNome.Location = new System.Drawing.Point(872, 564);
             this.txtPesquisaNome.Name = "txtPesquisaNome";
             this.txtPesquisaNome.Size = new System.Drawing.Size(216, 26);
             this.txtPesquisaNome.TabIndex = 72;
@@ -145,7 +145,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(627, 574);
+            this.label2.Location = new System.Drawing.Point(624, 564);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(207, 25);
             this.label2.TabIndex = 71;
@@ -156,7 +156,7 @@
             this.btnPesquisaNome.BackColor = System.Drawing.Color.DarkCyan;
             this.btnPesquisaNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisaNome.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisaNome.Location = new System.Drawing.Point(1112, 572);
+            this.btnPesquisaNome.Location = new System.Drawing.Point(1109, 562);
             this.btnPesquisaNome.Name = "btnPesquisaNome";
             this.btnPesquisaNome.Size = new System.Drawing.Size(123, 28);
             this.btnPesquisaNome.TabIndex = 70;
@@ -167,7 +167,7 @@
             // txtPesquisaCod
             // 
             this.txtPesquisaCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisaCod.Location = new System.Drawing.Point(875, 529);
+            this.txtPesquisaCod.Location = new System.Drawing.Point(872, 519);
             this.txtPesquisaCod.Maximum = new decimal(new int[] {
             1215752191,
             23,
@@ -182,7 +182,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(627, 531);
+            this.label4.Location = new System.Drawing.Point(624, 521);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(219, 25);
             this.label4.TabIndex = 68;
@@ -193,7 +193,7 @@
             this.btnPesquisa.BackColor = System.Drawing.Color.DarkCyan;
             this.btnPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisa.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisa.Location = new System.Drawing.Point(1112, 529);
+            this.btnPesquisa.Location = new System.Drawing.Point(1109, 519);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(123, 28);
             this.btnPesquisa.TabIndex = 67;

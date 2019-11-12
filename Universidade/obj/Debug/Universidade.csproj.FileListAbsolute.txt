@@ -219,3 +219,5 @@ C:\Users\2019102092\Gerenciador_Universidades\Universidade\obj\Debug\Universidad
 C:\Users\2019102092\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.CopyComplete
 C:\Users\2019102092\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.exe
 C:\Users\2019102092\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.pdb
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Correios.Net.dll
+C:\Projetos\Gerenciador_Universidades\Universidade\bin\Debug\Correios.Net.pdb

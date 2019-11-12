@@ -20,6 +20,7 @@ namespace Universidade.View
         {
             InitializeComponent();
             Preencher();
+            PrencheerCombo();
 
             cadastrarFuncionario.FlatStyle = FlatStyle.Flat;
             cadastrarFuncionario.FlatAppearance.BorderColor = Color.ForestGreen;
@@ -36,6 +37,10 @@ namespace Universidade.View
             btnPesquisaNome.FlatStyle = FlatStyle.Flat;
             btnPesquisaNome.FlatAppearance.BorderColor = Color.DarkCyan;
             btnPesquisaNome.FlatAppearance.BorderSize = 1;
+
+            btnPesquisaSetor.FlatStyle = FlatStyle.Flat;
+            btnPesquisaSetor.FlatAppearance.BorderColor = Color.DarkCyan;
+            btnPesquisaSetor.FlatAppearance.BorderSize = 1;
 
             DataGridViewButtonColumn editar = new DataGridViewButtonColumn();
             editar.Name = "Editar";
@@ -65,6 +70,16 @@ namespace Universidade.View
                 tabela.Columns.Insert(columnIndex, excluir);
             }
         }
+
+        public void PrencheerCombo()
+        {
+            var listaSetor = controle.listarSetor();
+            foreach (Setor setor in listaSetor)
+            {
+                txtPesquisaSetor.Items.Add(setor.Tipo);
+            }
+        }
+
         public void Preencher()
         {
 
@@ -152,6 +167,23 @@ namespace Universidade.View
         private void BtnPesquisaNome_Click(object sender, EventArgs e)
         {
             List<Funcionario> lstFun = new ControleClass().procurarFuncionariosNome(txtPesquisaCurso.Text);
+            var novaListFuncionario = lstFun.Select(funcionario => new
+            {
+                NR = funcionario.NR,
+                Nome = funcionario.Nome,
+                Setor = controle.procurarSetorNomes(funcionario.Setor_id),
+                Cargo = controle.procurarCargoNomes(funcionario.Cargo_id)
+            }).ToList();
+
+            tabela.DataSource = novaListFuncionario;
+            tabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabela.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
+            tabela.CellClick += tabela_CellClick;
+        }
+
+        private void btnPesquisaSetor_Click(object sender, EventArgs e)
+        {
+            List<Funcionario> lstFun = new ControleClass().listarFuncionarioSetor(txtPesquisaCurso.Text);
             var novaListFuncionario = lstFun.Select(funcionario => new
             {
                 NR = funcionario.NR,

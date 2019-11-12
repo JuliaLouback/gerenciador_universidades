@@ -167,5 +167,31 @@ namespace Universidade
             Hide();
             telaUsuario.Show();
         }
+
+        private void txtCep_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCep.Text))
+            {
+                using (var ws = new WSCorreios.AtendeClienteClient())
+
+                    try
+                    {
+                        var endereco = ws.consultaCEP(txtCep.Text.Trim());
+
+                        txtEstado.Text = endereco.uf;
+                        txtCidade.Text = endereco.cidade;
+                        txtBairro.Text = endereco.bairro;
+                        txtRua.Text = endereco.end;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Cep não localizado...");
+                    }
+            }
+            else
+            {
+                MessageBox.Show("Informe um CEP válido");
+            }
+        }
     }
 }

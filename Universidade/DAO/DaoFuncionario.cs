@@ -59,5 +59,11 @@ namespace Universidade.DAO
             return listfuncionarios;
         }
 
+        public List<Funcionario> listarFuncionarioSetor(string codigo)
+        {
+            var tipo = new DaoSetor().procurarSetorNome(codigo);
+            List<Funcionario> listfuncionarios = listaFuncionarios.FindAll(x => x.Setor_id == tipo.Codigo);
+            return listfuncionarios;
+        }
     }
 }

@@ -341,6 +341,12 @@ namespace Universidade.Controler
             return pesquisa;
         }
 
+        public List<Funcionario> listarFuncionarioSetor(string item)
+        {
+            var pesquisa = daoFuncionario.listarFuncionarioSetor(item);
+            return pesquisa;
+        }
+
         public List<Cargo> procurarCargoLista(int codigo)
         {
             var pesquisa = daoCargo.procurarCargoLista(codigo);
