@@ -17,7 +17,7 @@ namespace Universidade.View
     {
         public int verificar = 0;
         public int setor_id = 0;
-
+        public int numFuncionario = 0;
         ControleClass controleClasse = new ControleClass();
 
 
@@ -35,6 +35,19 @@ namespace Universidade.View
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
 
+
+
+            Random numRandFuncionario = new Random();
+            numFuncionario = numRandFuncionario.Next(11000000, 11999999);
+            if (controleClasse.procurarFuncionario(numFuncionario) == null)
+            {
+                nudNR.Value = numRandFuncionario.Next(11000000, 11999999);
+            }
+            else
+            {
+                Random numRandFuncionario2 = new Random();
+                numFuncionario = numRandFuncionario2.Next(11000000, 11999999);
+            }
 
 
             if (NR != 0)

@@ -17,6 +17,8 @@ namespace Universidade.View
     public partial class CadastroSetor : Form
     {
         public int verificar = 0;
+        public int numSetor= 0;
+        ControleClass controleClasse = new ControleClass();
 
         public CadastroSetor(int codigo)
         {
@@ -29,6 +31,19 @@ namespace Universidade.View
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+
+
+            Random numRandSetor = new Random();
+            numSetor = numRandSetor.Next(7000, 7999);
+            if (controleClasse.procurarSetor(numSetor) == null)
+            {
+                txtCodigo.Value = numRandSetor.Next(7000, 7999);
+            }
+            else
+            {
+                Random numRandSetor2 = new Random();
+                numSetor = numRandSetor2.Next(7000, 7999);
+            }
 
             if (codigo != 0)
             {

@@ -15,6 +15,7 @@ namespace Universidade.View
     public partial class CadastroAluno : Form
     {
         public int verificar = 0;
+        public int numAluno = 0;
         ControleClass cadAluno = new ControleClass();
 
         public CadastroAluno(int NR)
@@ -27,6 +28,21 @@ namespace Universidade.View
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+
+
+            Random numRandAluno = new Random();
+            numAluno = numRandAluno.Next(2019000000, 2019999999);
+
+            if (cadAluno.procurarAluno(numAluno) == null)
+            {
+                txtNR.Value = numRandAluno.Next(2019000000, 2019999999);
+            }
+            else
+            {
+                Random numRandAluno2 = new Random();
+                numAluno = numRandAluno2.Next(2019000000, 2019999999);
+            }
+
 
             if (NR != 0)
             {

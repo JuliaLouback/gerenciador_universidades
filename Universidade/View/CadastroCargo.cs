@@ -15,7 +15,7 @@ namespace Universidade.View
     public partial class CadastroCargo : Form
     {
         ControleClass controles = new ControleClass();
-
+        public int numCargo = 0;
         public int verificar = 0;
 
         public CadastroCargo(int codigo)
@@ -30,6 +30,18 @@ namespace Universidade.View
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+            
+            Random numRandCargo = new Random();
+            numCargo = numRandCargo.Next(8000, 8999);
+            if (controles.procurarCargo(numCargo) == null)
+            {
+                txtCodigo.Value = numRandCargo.Next(8000, 8999);
+            }
+            else
+            {
+                Random numRandCargo2 = new Random();
+                numCargo = numRandCargo2.Next(8000, 8999);
+            }
 
             if (codigo != 0)
             {

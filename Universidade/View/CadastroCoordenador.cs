@@ -17,6 +17,9 @@ namespace Universidade.View
     {
         public int verificar = 0;
         public int curso_id = 0;
+        public int numCoordenador = 0;
+        ControleClass controleCoordenador = new ControleClass();
+
         public CadastroCoordenador(int NR)
         {
             InitializeComponent();
@@ -28,6 +31,19 @@ namespace Universidade.View
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+            
+
+            Random numRandCoordenador = new Random();
+            numCoordenador = numRandCoordenador.Next(91000000, 91999999);
+            if (controleCoordenador.procurarCoordenador(numCoordenador) == null)
+            {
+                txtNR.Value = numRandCoordenador.Next(91000000, 91999999);
+            }
+            else
+            {
+                Random numRandCoordenador2 = new Random();
+                numCoordenador = numRandCoordenador2.Next(91000000, 91999999);
+            }
 
             if (NR != 0)
             {
