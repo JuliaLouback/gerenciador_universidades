@@ -92,51 +92,58 @@ namespace Universidade.View
 
         private void btnCadastrarUsuario_Click(object sender, EventArgs e)
         {
-            Aluno aluno = new Aluno();
-
-            Endereco endereco = new Endereco();
-            Telefone telefone = new Telefone();
-
-            aluno.Nome = txtNome.Text;
-            aluno.Idade = Convert.ToInt32(txtIdade.Value);
-            aluno.Sexo = txtSexo.Text;
-            aluno.EstadoCivil = txtEstadoCivil.Text;
-            aluno.CPF = txtCpf.Text;
-            aluno.NR = Convert.ToInt32(txtNR.Text);
-            aluno.Email = txtEmail.Text;
-
-            var pesquisaCurso = cadAluno.procurarCursoNome(txtCurso.Text);
-            aluno.Curso_id = pesquisaCurso.Codigo;
-
-            endereco.Cep = txtCep.Text;
-            endereco.Numero = Convert.ToInt32(txtNumero.Value);
-            endereco.Rua = txtRua.Text;
-            endereco.Bairro = txtBairro.Text;
-            endereco.Cidade = txtCidade.Text;
-            endereco.Estado = txtEstado.Text;
-            endereco.Pais = txtPais.Text;
-
-            telefone.TelefoneFixo = txtTelefoneFixo.Text;
-            telefone.TelefoneCelular = txtTelefoneCelular.Text;
-
-            aluno.Endereco = endereco;
-            aluno.Telefone = telefone;
-
-            var pesquisaCursinho = cadAluno.procurarCursoNome(txtCurso.Text);
-            aluno.Curso_id = pesquisaCursinho.Codigo;
-
-            if (verificar == 0)
+            if (string.IsNullOrEmpty(txtCurso.Text))
             {
-                new ControleClass().adicionarAluno(aluno);
-               
-                MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Insira o curso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                new ControleClass().excluirAluno(verificar);
-                new ControleClass().adicionarAluno(aluno);
-               
-                MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Aluno aluno = new Aluno();
+
+                Endereco endereco = new Endereco();
+                Telefone telefone = new Telefone();
+
+                aluno.Nome = txtNome.Text;
+                aluno.Idade = Convert.ToInt32(txtIdade.Value);
+                aluno.Sexo = txtSexo.Text;
+                aluno.EstadoCivil = txtEstadoCivil.Text;
+                aluno.CPF = txtCpf.Text;
+                aluno.NR = Convert.ToInt32(txtNR.Text);
+                aluno.Email = txtEmail.Text;
+
+                var pesquisaCurso = cadAluno.procurarCursoNome(txtCurso.Text);
+                aluno.Curso_id = pesquisaCurso.Codigo;
+
+                endereco.Cep = txtCep.Text;
+                endereco.Numero = Convert.ToInt32(txtNumero.Value);
+                endereco.Rua = txtRua.Text;
+                endereco.Bairro = txtBairro.Text;
+                endereco.Cidade = txtCidade.Text;
+                endereco.Estado = txtEstado.Text;
+                endereco.Pais = txtPais.Text;
+
+                telefone.TelefoneFixo = txtTelefoneFixo.Text;
+                telefone.TelefoneCelular = txtTelefoneCelular.Text;
+
+                aluno.Endereco = endereco;
+                aluno.Telefone = telefone;
+
+                var pesquisaCursinho = cadAluno.procurarCursoNome(txtCurso.Text);
+                aluno.Curso_id = pesquisaCursinho.Codigo;
+
+                if (verificar == 0)
+                {
+                    new ControleClass().adicionarAluno(aluno);
+
+                    MessageBox.Show("Seu cadastro foi efetuado com sucesso!", "Cadastro efetuado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    new ControleClass().excluirAluno(verificar);
+                    new ControleClass().adicionarAluno(aluno);
+
+                    MessageBox.Show("Edição efetuada com sucesso!", "Edição efetuada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
