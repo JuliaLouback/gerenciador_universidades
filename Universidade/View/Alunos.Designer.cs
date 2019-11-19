@@ -187,9 +187,9 @@
             this.label4.ForeColor = System.Drawing.Color.DimGray;
             this.label4.Location = new System.Drawing.Point(637, 507);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 25);
+            this.label4.Size = new System.Drawing.Size(181, 25);
             this.label4.TabIndex = 74;
-            this.label4.Text = "Pesquisar por Código";
+            this.label4.Text = "Pesquisar por NR";
             // 
             // btnPesquisa
             // 

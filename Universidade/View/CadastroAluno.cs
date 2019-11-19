@@ -17,6 +17,7 @@ namespace Universidade.View
         public int verificar = 0;
         public int numAluno = 0;
         ControleClass cadAluno = new ControleClass();
+        private Aluno aluno = new Aluno();
 
         public CadastroAluno(int NR)
         { 
@@ -42,7 +43,7 @@ namespace Universidade.View
                 Random numRandAluno2 = new Random();
                 numAluno = numRandAluno2.Next(2019000000, 2019999999);
             }
-
+            aluno.Codigo = Convert.ToInt32(txtNR.Value);
 
             if (NR != 0)
             {
@@ -161,7 +162,7 @@ namespace Universidade.View
                         txtBairro.Text = endereco.bairro;
                         txtRua.Text = endereco.end;
                     }
-                    catch (Exception ex)
+                    catch (Exception) //ex tirei
                     {
                         MessageBox.Show("Cep não localizado...");
                     }

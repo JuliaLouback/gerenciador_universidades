@@ -285,3 +285,5 @@ C:\Users\kahns\Desktop\GerenciadorUni\Gerenciador_Universidades\Universidade\obj
 C:\Users\kahns\Desktop\GerenciadorUni\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.csproj.CopyComplete
 C:\Users\kahns\Desktop\GerenciadorUni\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.exe
 C:\Users\kahns\Desktop\GerenciadorUni\Gerenciador_Universidades\Universidade\obj\Debug\Universidade.pdb
+C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\bin\Debug\Correios.Net.dll
+C:\Users\user\Desktop\Gerenciador_Universidades\Universidade\bin\Debug\Correios.Net.pdb

@@ -219,7 +219,7 @@ namespace Universidade.View
                         txtBairro.Text = endereco.bairro;
                         txtRua.Text = endereco.end;
                     }
-                    catch (Exception ex)
+                    catch (Exception)//tirei ex
                     {
                         MessageBox.Show("Cep não localizado...");
                     }

@@ -139,6 +139,7 @@
             // 
             // txtNR
             // 
+            this.txtNR.Enabled = false;
             this.txtNR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNR.Location = new System.Drawing.Point(442, 203);
             this.txtNR.Maximum = new decimal(new int[] {

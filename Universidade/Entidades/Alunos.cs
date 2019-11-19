@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Universidade.Entidades
 {
-    class Aluno : Pessoa
+    class Alunos : Pessoa
     {
-        public int Curso_id { get; set; }
-        public int Codigo { get; internal set; }
+        public string Curso { get; set; }
     }
 }

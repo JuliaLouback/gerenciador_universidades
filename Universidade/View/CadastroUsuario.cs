@@ -20,9 +20,10 @@ namespace Universidade
         public int verificar = 0;
         public int curso_id = 0;
         public int materia_id = 0;
+        public int numUsuario = 0;
 
         ControleClass controleClasse = new ControleClass();
-     
+
         public CadastroUsuario(int NR)
         {
             InitializeComponent();
@@ -34,6 +35,21 @@ namespace Universidade
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.FlatAppearance.BorderColor = Color.DarkCyan;
             btnVoltar.FlatAppearance.BorderSize = 1;
+
+            Random numRandUsuario = new Random();
+            numUsuario = numRandUsuario.Next(90000, 99999);
+
+            if (controleClasse.procurarAluno(numUsuario) == null)
+            {
+                txtNR.Value = numRandUsuario.Next(90000, 99999);
+            }
+            else
+            {
+                Random numRandUsuario2 = new Random();
+                numUsuario = numRandUsuario2.Next(90000, 99999);
+            }
+            //usuario.Codigo = Convert.ToInt32(txtNR.Value);
+
 
             if (NR != 0)
             {
@@ -186,7 +202,7 @@ namespace Universidade
                         txtBairro.Text = endereco.bairro;
                         txtRua.Text = endereco.end;
                     }
-                    catch (Exception ex)
+                    catch (Exception)//tirei ex
                     {
                         MessageBox.Show("Cep não localizado...");
                     }
